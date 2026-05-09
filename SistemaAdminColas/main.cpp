@@ -1,6 +1,12 @@
-#include <iostream>
+#include "sistema/Sistema.h"
+#include "interfaz/Interfaz.h"
 
-int main()
-{
-    std::cout << "Hello World!\n";
+int main() {
+	// Flujo de entrada
+	
+	// Sistema sistema;
+	// Interfaz interfaz(sistema);
+	// interfaz.iniciar();
+
+	return 0;
 }
