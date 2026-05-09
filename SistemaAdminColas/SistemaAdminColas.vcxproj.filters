@@ -33,6 +33,12 @@
     <ClCompile Include="modelo\Servicio.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="sistema\Sistema.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="interfaz\Interfaz.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="modelo\TipoUsuario.h">
@@ -48,6 +54,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="modelo\Servicio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sistema\Sistema.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="interfaz\Interfaz.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
