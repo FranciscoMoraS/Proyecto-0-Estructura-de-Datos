@@ -127,7 +127,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="modelo\Area.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="modelo\TipoUsuario.cpp" />
+    <ClCompile Include="modelo\Ventanilla.cpp" />
+    <ClCompile Include="modelo\Tiquete.cpp" />
+    <ClCompile Include="modelo\Servicio.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="modelo\Area.h" />
+    <ClInclude Include="modelo\TipoUsuario.h" />
+    <ClInclude Include="modelo\Ventanilla.h" />
+    <ClInclude Include="modelo\Tiquete.h" />
+    <ClInclude Include="modelo\Servicio.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
