@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="SistemaAdminColas/SistemaAdminColas.vcxproj" Id="cfff6d41-4524-4a6b-90db-cbe245630c1f" />
+</Solution>
