@@ -1,10 +1,9 @@
 #include <iostream>
 #include "Interfaz.h"
-#include "../sistema/Sistema.h"
 
 using std::cout;
 
-Interfaz::Interfaz(Sistema& sistema) : sistema(sistema) {}
+Interfaz::Interfaz(Sistema& sistema) : sistema(sistema), ejecutando(true) {}
 
 void Interfaz::iniciar() {
 	cout << "Inicio programa\n";
