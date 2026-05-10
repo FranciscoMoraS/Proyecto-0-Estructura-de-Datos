@@ -19,6 +19,8 @@ public:
 	~Ventanilla() = default;
 
 	double atenderTiquete(const Tiquete& tiquete); // retorna tiempo de espera
+	
+	void limpiar();
 
 	std::string getNombre() const;
 	int getTiquetesAtendidos() const;

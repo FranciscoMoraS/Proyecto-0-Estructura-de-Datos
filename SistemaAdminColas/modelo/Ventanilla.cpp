@@ -7,6 +7,13 @@ Ventanilla::Ventanilla(const std::string& nombre) {
 double Ventanilla::atenderTiquete(const Tiquete& tiquete) {
 	// atender el tiquete, indicar que existe tiquete en ventanilla
 	// y retornar el tiempo de espera
+	return 0.0;
+}
+
+void Ventanilla::limpiar() {
+	tiquetesAtendidos = 0;
+	tieneTiqueteActual = false;
+	tiqueteActual = Tiquete();
 }
 
 std::string Ventanilla::getNombre() const {
@@ -19,4 +26,5 @@ int Ventanilla::getTiquetesAtendidos() const {
 
 std::ostream& operator<<(std::ostream& os, const Ventanilla& ventanilla) {
 	// mostrar el nombre seguido del código del tiquete actual (si hay)
+	return os;
 }
