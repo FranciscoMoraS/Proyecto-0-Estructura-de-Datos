@@ -19,7 +19,7 @@ public:
 	~Ventanilla() = default;
 
 	Tiquete getTiquete() const;
-	void atenderTiquete();
+	void atenderTiquete(const Tiquete& tiquete);
 	int getTiquetesAtendidos() const;
 
 	std::string getNombre() const;
