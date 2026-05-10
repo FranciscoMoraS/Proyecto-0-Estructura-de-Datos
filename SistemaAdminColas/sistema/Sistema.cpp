@@ -102,5 +102,5 @@ void Sistema::mostrarEstadisticas() {
 }
 
 void Sistema::limpiarColasYEstadisticas() {
-	// TODO: cuando Area exista, recorrer areas y llamar a area->limpiarCola()
+	// TODO: cuando Area exista
 }
