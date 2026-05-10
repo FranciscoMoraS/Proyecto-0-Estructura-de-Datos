@@ -33,6 +33,14 @@ private:
 
 	void limpiarColasYEstadisticas();
 
+	// --- Helpers de E/S ---
+	int leerEntero(const std::string& prompt);
+	int leerEnteroEnRango(const std::string& prompt, int min, int max);
+	std::string leerTexto(const std::string& prompt);
+	bool confirmar(const std::string& mensaje);
+	void presionarParaContinuar();
+	void limpiarPantalla();
+
 public:
 	Interfaz(Sistema& sistema);
 	void iniciar();
