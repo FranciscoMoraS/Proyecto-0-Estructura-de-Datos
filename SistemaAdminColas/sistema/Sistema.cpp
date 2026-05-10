@@ -18,7 +18,7 @@ Sistema::~Sistema() {
 }
 
 // --- Tipos de usuario ---
-void Sistema::agregarTipoUsuario(const std::string& descripcion, int prioridad) {
+void Sistema::agregarTipoUsuario(const string& descripcion, int prioridad) {
 	TipoUsuario nuevo(descripcion, prioridad);
 
 	usuarios->goToStart();
@@ -37,4 +37,11 @@ void Sistema::eliminarTipoUsuario(int posicion) {
 
 LinkedList<TipoUsuario>& Sistema::getTiposUsuario() {
 	return *usuarios;
+}
+
+// --- Servicios ---
+
+void Sistema::agregarServicio(const string& descripcion, int prioridad, const string& codigoArea) {
+	Servicio nuevo(descripcion, prioridad, codigoArea);
+	servicios->append(nuevo);
 }
