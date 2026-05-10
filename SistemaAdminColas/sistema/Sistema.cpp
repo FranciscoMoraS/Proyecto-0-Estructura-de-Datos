@@ -34,7 +34,12 @@ void Sistema::eliminarTipoUsuario(int posicion) {
 	usuarios->goToPos(posicion);
 	usuarios->remove();
 
-	// TODO: limpiar tiquetes de todas las colas
+	/*areas->goToStart();
+	while (!areas->atEnd()) {
+		Area* area = areas->getElement();
+		area->limpiarCola();
+		areas->next();
+	}*/
 }
 
 int Sistema::getCantidadTiposUsuario() const {
