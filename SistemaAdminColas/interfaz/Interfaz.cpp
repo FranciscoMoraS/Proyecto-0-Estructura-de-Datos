@@ -31,7 +31,7 @@ void Interfaz::menuPrincipal() {
 	switch (opcion) {
 		case 1: mostrarEstadoColas();		break;
 		case 2: "menuTiquetes()";			break;
-		case 3: "atenderTiquete()";			break;
+		case 3: atenderTiquete();			break;
 		case 4: menuAdministracion();		break;
 		case 5: "mostrarEstadisticas()";	break;
 		case 6: ejecutando = false;			break;
@@ -72,6 +72,14 @@ void Interfaz::mostrarEstadoColas() {
 	cout << "[TODO: mostrar estado de las colas]\n";
 	presionarParaContinuar();
 }
+
+void Interfaz::atenderTiquete() {
+	limpiarPantalla();
+	cout << "[TODO: atender tiquete]\n";
+	presionarParaContinuar();
+}
+
+// siguen el mismo patrón
 
 // ===================================================================
 // HELPERS DE E/S
