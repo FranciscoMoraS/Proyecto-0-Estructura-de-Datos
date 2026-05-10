@@ -5,30 +5,20 @@
 
 class Servicio {
 private:
-	std::string nombre;
 	std::string descripcion;
-	int prioridad;
+	int prioridad = 0;
 	std::string codigoArea;
-	int codigoServicio;
-	int cantidadTiquetes;
+	int totalTiquetes = 0;
 
 public:
 	Servicio() = default;
-	Servicio(const std::string& nombre, const std::string& descripcion, int prioridad, int codigoArea);
+	Servicio(const std::string& descripcion, int prioridad, const std::string& codigoArea);
 	Servicio(const Servicio&) = default;
 	Servicio& operator=(const Servicio&) = default;
 	~Servicio() = default;
 
-	std::string getNombre() const;
-	void setNombre(const std::string& nombre);
-
-	std::string getDescripcion() const;
-	void setDescripcion(const std::string& descripcion);
-
 	int getPrioridad() const;
-	void setPrioridad(int prioridad);
-
-	int getArea() const;
+	const std::string& getCodigoArea() const;
 
 	void aumentarTiquetes();
 	int getTotalTiquetes() const;
