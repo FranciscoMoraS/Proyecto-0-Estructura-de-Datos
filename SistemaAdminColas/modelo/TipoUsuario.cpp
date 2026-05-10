@@ -8,7 +8,6 @@ TipoUsuario::TipoUsuario(const string& nombre, const string& descripcion, int pr
 	this->nombre = nombre;
 	this->descripcion = descripcion;
 	this->prioridad = prioridad;
-	totalTiquetes = 0;
 }
 
 string TipoUsuario::getNombre() const {

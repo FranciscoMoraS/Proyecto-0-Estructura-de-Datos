@@ -7,8 +7,8 @@ class TipoUsuario {
 private:
 	std::string nombre;
 	std::string descripcion;
-	int prioridad;
-	int totalTiquetes;
+	int prioridad = 0;
+	int totalTiquetes = 0;
 
 public:
 	TipoUsuario() = default;
