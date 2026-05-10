@@ -6,7 +6,6 @@
 int main() {
 	SetConsoleOutputCP(CP_UTF8);
 	SetConsoleCP(CP_UTF8);
-	setlocale(LC_ALL, "");
 
 	Sistema sistema;
 	Interfaz interfaz(sistema);

@@ -73,7 +73,7 @@ void Interfaz::menuTiposUsuario() {
 		int opcion = leerEnteroEnRango("Seleccione una opción: ", 1, 3);
 		switch (opcion) {
 		case 1: agregarTipoUsuario();			break;
-		case 2: "menuAreas()";					break;
+		case 2: eliminarTipoUsuario();			break;
 		case 3: enMenu = false;					break;
 		}
 	}
@@ -102,6 +102,32 @@ void Interfaz::agregarTipoUsuario() {
 
 	cout << "\nTipo de usuario agregado correctamente!\n";
 	presionarParaContinuar();
+}
+
+void Interfaz::eliminarTipoUsuario() {
+	limpiarPantalla();
+
+	cout << "===== ELIMINAR TIPO DE USUARIO =====\n\n";
+	int n = sistema.getCantidadTiposUsuario();
+	if (n == 0) {
+		cout << "(No hay tipos de usuario para eliminar)\n";
+		presionarParaContinuar();
+		return;
+	}
+	mostrarTiposUsuario();
+
+	int pos = leerEnteroEnRango("\nNúmero del tipo a eliminar: ", 1, n);
+	cout << "\nADVERTENCIA: Eliminar un tipo de usuario borrará todos los tiquetes de todas las colas.\n";
+
+	if (confirmar("¿Continuar?")) {
+		sistema.eliminarTipoUsuario(pos - 1);
+		cout << "\nTipo de usuario eliminado!\n";
+	}
+	else {
+		cout << "\nOperación cancelada.\n";
+	}
+	presionarParaContinuar();
+
 }
 
 // menuTiquetes, menuAreas, menuServicios siguen
