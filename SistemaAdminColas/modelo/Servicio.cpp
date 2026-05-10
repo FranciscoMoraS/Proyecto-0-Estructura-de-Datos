@@ -26,6 +26,10 @@ int Servicio::getTotalTiquetes() const {
 	return totalTiquetes;
 }
 
+void Servicio::resetearTiquetes() {
+	totalTiquetes = 0;
+}
+
 std::ostream& operator<<(std::ostream& os, const Servicio& s) {
 	os << s.descripcion + " [área: " + s.codigoArea + ", prioridad: " + std::to_string(s.prioridad) + "]";
 	return os;
