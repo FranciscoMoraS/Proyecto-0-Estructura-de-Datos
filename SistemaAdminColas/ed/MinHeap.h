@@ -23,7 +23,7 @@ private:
 	int parent(int pos) {
 		return (pos - 1) / 2;
 	}
-	void swap(int pos1, int pos2) { // existe un swap de std
+	void swap(int pos1, int pos2) {
 		E temp = elements[pos1];
 		elements[pos1] = elements[pos2];
 		elements[pos2] = temp;
