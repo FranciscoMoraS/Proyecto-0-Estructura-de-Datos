@@ -10,7 +10,7 @@ private:
 
 	std::string codigo;
 	std::time_t horaSolicitud = 0;
-	std::time_t horaAtencion = 0;	// 0 si aún no fue atendido
+	std::time_t horaAtencion = 0;
 	int prioridadFinal = 0;
 
 public:
@@ -25,11 +25,10 @@ public:
 	std::time_t getHoraAtencion() const;
 	int getPrioridadFinal() const;
 
-	void marcarAtendido();	// setea horaAtencion al momento actual
-	double getTiempoDeEspera() const; // en segundos, la diferencia entre atención y solicitud
+	void marcarAtendido();
+	double getTiempoDeEspera() const;
 
 	bool operator<(const Tiquete& other) const;
 
-	std::string ToString() const;
 	friend std::ostream& operator<<(std::ostream& os, const Tiquete& tiquete);
 };
