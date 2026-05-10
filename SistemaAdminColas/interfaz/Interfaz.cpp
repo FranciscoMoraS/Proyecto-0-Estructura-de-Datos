@@ -1,4 +1,5 @@
-#include <iostream>
+﻿#include <iostream>
+#include <cstdlib>
 #include "Interfaz.h"
 
 using std::cout;
@@ -6,5 +7,15 @@ using std::cout;
 Interfaz::Interfaz(Sistema& sistema) : sistema(sistema), ejecutando(true) {}
 
 void Interfaz::iniciar() {
-	cout << "Inicio programa\n";
+	while (ejecutando) {
+		cout << "Inicio programa\n";
+	}
+}
+
+// ===================================================================
+// MENÚS
+// ===================================================================
+
+void Interfaz::limpiarPantalla() {
+	std::system("cls");
 }
