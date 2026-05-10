@@ -52,3 +52,11 @@ void Sistema::eliminarServicio(int posicion) {
 
 	// TODO: limpiar tiquetes de todas las colas
 }
+
+void Sistema::reordenarServicio(int desde, int hasta) {
+	servicios->goToPos(desde);
+	Servicio s = servicios->remove();
+
+	servicios->goToPos(hasta);
+	servicios->insert(s);
+}
