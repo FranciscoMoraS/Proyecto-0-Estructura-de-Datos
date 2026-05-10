@@ -17,6 +17,7 @@ Sistema::~Sistema() {
 	// delete areas;
 }
 
+
 // --- Tipos de usuario ---
 void Sistema::agregarTipoUsuario(const std::string& descripcion, int prioridad) {
 	TipoUsuario nuevo(descripcion, prioridad);
