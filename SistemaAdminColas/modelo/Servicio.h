@@ -13,6 +13,7 @@ private:
 	int cantidadTiquetes;
 
 public:
+	Servicio() = default;
 	Servicio(const std::string& nombre, const std::string& descripcion, int prioridad, int codigoArea);
 	Servicio(const Servicio&) = default;
 	Servicio& operator=(const Servicio&) = default;
