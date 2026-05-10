@@ -9,9 +9,9 @@ private:
 	static int consecutivo;
 
 	std::string codigo;
-	std::time_t horaSolicitud;
-	std::time_t horaAtencion;	// 0 si aún no fue atendido
-	int prioridadFinal;
+	std::time_t horaSolicitud = 0;
+	std::time_t horaAtencion = 0;	// 0 si aún no fue atendido
+	int prioridadFinal = 0;
 
 public:
 	Tiquete() = default;
