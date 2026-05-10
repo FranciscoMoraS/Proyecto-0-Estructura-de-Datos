@@ -23,6 +23,5 @@ public:
 	void aumentarTiquetes();
 	int getTotalTiquetes() const;
 
-	std::string toString() const;
 	friend std::ostream& operator<<(std::ostream& os, const Servicio& servicio);
 };

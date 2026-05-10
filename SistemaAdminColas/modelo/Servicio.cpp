@@ -26,11 +26,7 @@ int Servicio::getTotalTiquetes() const {
 	return totalTiquetes;
 }
 
-string Servicio::toString() const {
-	return descripcion + " [área: " + codigoArea + ", prioridad: " + std::to_string(prioridad) + "]";
-}
-
-std::ostream& operator<<(std::ostream& os, const Servicio& servicio) {
-	os << servicio.toString();
+std::ostream& operator<<(std::ostream& os, const Servicio& s) {
+	os << s.descripcion + " [área: " + s.codigoArea + ", prioridad: " + std::to_string(s.prioridad) + "]";
 	return os;
 }
