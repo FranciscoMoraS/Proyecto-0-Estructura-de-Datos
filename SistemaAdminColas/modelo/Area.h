@@ -32,6 +32,7 @@ public:
 	void modificarVentanillas(int nuevaCantidad);
 
 	// --- limpieza ---
+	void limpiarCola();
 	void limpiarColaYEstadisticas();
 
 	std::string getCodigo() const;
