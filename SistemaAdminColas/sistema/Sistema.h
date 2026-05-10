@@ -19,7 +19,8 @@ public:
 	// --- Tipos de usuario ---
 	void agregarTipoUsuario(const std::string& descripcion, int prioridad);
 	void eliminarTipoUsuario(int posicion);
-	LinkedList<TipoUsuario>& getTiposUsuario();
+	int getCantidadTiposUsuario() const;
+	const TipoUsuario& getTipoUsuario(int pos);
 
 	// --- Servicios ---
 	void agregarServicio(const std::string& descripcion, int prioridad, const std::string& codigoArea);

@@ -51,7 +51,7 @@ void Interfaz::menuAdministracion() {
 
 		int opcion = leerEnteroEnRango("Seleccione una opción: ", 1, 5);
 		switch (opcion) {
-			case 1: "menuTiposUsuario()";			break;
+			case 1: menuTiposUsuario();				break;
 			case 2: "menuAreas()";					break;
 			case 3: "menuServicios()";				break;
 			case 4: "limpiarColasYEstadisticas()";	break;
@@ -60,7 +60,38 @@ void Interfaz::menuAdministracion() {
 	}
 }
 
-// menuTiquetes, menuTiposUsuario, menuAreas, menuServicios siguen
+void Interfaz::menuTiposUsuario() {
+	bool enMenu = true;
+	while (enMenu) {
+		limpiarPantalla();
+		cout << "===== TIPOS DE USUARIO =====\n\n";
+		mostrarTiposUsuario();
+		cout << "\n1. Agregar\n";
+		cout << "2. Eliminar\n";
+		cout << "3. Regresar\n";
+
+		int opcion = leerEnteroEnRango("Seleccione una opción: ", 1, 3);
+		switch (opcion) {
+		case 1: "menuTiposUsuario()";			break;
+		case 2: "menuAreas()";					break;
+		case 3: enMenu = false;					break;
+		}
+	}
+}
+
+void Interfaz::mostrarTiposUsuario() {
+	int n = sistema.getCantidadTiposUsuario();
+	if (n == 0) {
+		cout << "(No hay tipos de usuario configurados)\n";
+		return;
+	}
+	cout << "Tipos de usuario actuales:\n";
+	for (int i = 0; i < n; i++) {
+		cout << "  " << (i + 1) << ". " << sistema.getTipoUsuario(i) << "\n";
+	}
+}
+
+// menuTiquetes, menuAreas, menuServicios siguen
 // el mismo patrón de menuAdministracion.
 
 // ===================================================================

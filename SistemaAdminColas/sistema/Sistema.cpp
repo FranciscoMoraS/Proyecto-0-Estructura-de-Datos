@@ -37,8 +37,13 @@ void Sistema::eliminarTipoUsuario(int posicion) {
 	// TODO: limpiar tiquetes de todas las colas
 }
 
-LinkedList<TipoUsuario>& Sistema::getTiposUsuario() {
-	return *usuarios;
+int Sistema::getCantidadTiposUsuario() const {
+	return usuarios->getSize();
+}
+
+const TipoUsuario& Sistema::getTipoUsuario(int pos) {
+	usuarios->goToPos(pos);
+	return usuarios->getElement();
 }
 
 // --- Servicios ---
