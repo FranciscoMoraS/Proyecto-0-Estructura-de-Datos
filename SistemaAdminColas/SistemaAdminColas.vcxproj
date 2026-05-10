@@ -137,6 +137,9 @@
     <ClCompile Include="sistema\Sistema.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ed\LinkedList.h" />
+    <ClInclude Include="ed\List.h" />
+    <ClInclude Include="ed\Node.h" />
     <ClInclude Include="interfaz\Interfaz.h" />
     <ClInclude Include="modelo\Area.h" />
     <ClInclude Include="modelo\TipoUsuario.h" />
