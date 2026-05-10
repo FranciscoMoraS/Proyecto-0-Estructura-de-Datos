@@ -16,8 +16,13 @@ int TipoUsuario::getPrioridad() const {
 void TipoUsuario::aumentarTiquetes() {
 	totalTiquetes++;
 }
+
 int TipoUsuario::getTotalTiquetes() const {
 	return totalTiquetes;
+}
+
+void TipoUsuario::resetearTiquetes() {
+	totalTiquetes = 0;
 }
 
 bool TipoUsuario::operator<(const TipoUsuario& other) const {

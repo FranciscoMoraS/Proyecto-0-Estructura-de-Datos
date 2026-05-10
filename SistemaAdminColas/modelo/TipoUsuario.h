@@ -20,6 +20,7 @@ public:
 
 	void aumentarTiquetes();
 	int getTotalTiquetes() const;
+	void resetearTiquetes();
 
 	bool operator<(const TipoUsuario& other) const;
 
