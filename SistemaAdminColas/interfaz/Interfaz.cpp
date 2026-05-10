@@ -29,15 +29,12 @@ void Interfaz::menuPrincipal() {
 
 	int opcion = leerEnteroEnRango("Seleccione una opción: ", 1, 6);
 	switch (opcion) {
-		case 1: "mostrarEstadoColas()";		break;
+		case 1: mostrarEstadoColas();		break;
 		case 2: "menuTiquetes()";			break;
 		case 3: "atenderTiquete()";			break;
 		case 4: menuAdministracion();		break;
 		case 5: "mostrarEstadisticas()";	break;
-		case 6:
-			ejecutando = false;
-			std::cout << "\nSaliendo del programa...\n";
-			break;
+		case 6: ejecutando = false;			break;
 	}
 }
 
@@ -65,6 +62,16 @@ void Interfaz::menuAdministracion() {
 
 // menuTiquetes, menuTiposUsuario, menuAreas, menuServicios siguen
 // el mismo patrón de menuAdministracion.
+
+// ===================================================================
+// ACCIONES
+// ===================================================================
+void Interfaz::mostrarEstadoColas() {
+	limpiarPantalla();
+	cout << "===== ESTADO DE COLAS =====\n";
+	cout << "[TODO: mostrar estado de las colas]\n";
+	presionarParaContinuar();
+}
 
 // ===================================================================
 // HELPERS DE E/S
