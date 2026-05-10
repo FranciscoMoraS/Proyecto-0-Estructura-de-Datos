@@ -7,9 +7,9 @@
 class Ventanilla {
 private:
 	std::string nombre;
-	int tiquetesAtendidos;
+	int tiquetesAtendidos = 0;
 	Tiquete tiqueteActual;
-	bool tieneTiqueteActual;
+	bool tieneTiqueteActual = false;
 
 public:
 	Ventanilla() = default;
