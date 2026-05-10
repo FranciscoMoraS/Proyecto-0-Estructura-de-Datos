@@ -17,7 +17,6 @@ Sistema::~Sistema() {
 	// delete areas;
 }
 
-
 // --- Tipos de usuario ---
 void Sistema::agregarTipoUsuario(const std::string& descripcion, int prioridad) {
 	TipoUsuario nuevo(descripcion, prioridad);
@@ -27,4 +26,11 @@ void Sistema::agregarTipoUsuario(const std::string& descripcion, int prioridad) 
 		usuarios->next();
 	}
 	usuarios->insert(nuevo);
+}
+
+void Sistema::eliminarTipoUsuario(int posicion) {
+	usuarios->goToPos(posicion);
+	usuarios->remove();
+
+	// TODO: limpiar tiquetes de todas las colas
 }
