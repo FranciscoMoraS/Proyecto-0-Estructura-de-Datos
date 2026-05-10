@@ -60,3 +60,7 @@ void Sistema::reordenarServicio(int desde, int hasta) {
 	servicios->goToPos(hasta);
 	servicios->insert(s);
 }
+
+LinkedList<Servicio>& Sistema::getServicios() {
+	return *servicios;
+}
