@@ -35,7 +35,7 @@ void Interfaz::menuPrincipal() {
 	case 5: "mostrarEstadisticas()";	break;
 	case 6:
 		ejecutando = false;
-		std::cout << "Saliendo del programa...\n";
+		std::cout << "\nSaliendo del programa...\n";
 		break;
 	}
 }
@@ -56,6 +56,15 @@ int Interfaz::leerEntero(const std::string& prompt) {
 		std::stringstream ss(linea);
 		if (ss >> valor && (ss >> std::ws).eof())
 			return valor;
-		cout << "Entrada inválida. Escoja una opción del menú.\n";
+		cout << "Entrada inválida. Ingrese un número entero.\n";
+	}
+}
+
+int Interfaz::leerEnteroEnRango(const std::string& prompt, int min, int max) {
+	while (true) {
+		int valor = leerEntero(prompt);
+		if (valor >= min && valor <= max)
+			return valor;
+		cout << "El valor debe estar entre " << min << " y " << max << ".\n";
 	}
 }
