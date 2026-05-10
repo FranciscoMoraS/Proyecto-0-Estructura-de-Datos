@@ -11,6 +11,7 @@ private:
 	int totalTiquetes;
 
 public:
+	TipoUsuario() = default;
 	TipoUsuario(const std::string& nombre, const std::string& descripcion, int prioridad);
 	TipoUsuario(const TipoUsuario&) = default;
 	TipoUsuario& operator=(const TipoUsuario&) = default;
