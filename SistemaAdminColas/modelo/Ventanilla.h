@@ -18,14 +18,10 @@ public:
 	Ventanilla& operator=(const Ventanilla&) = default;
 	~Ventanilla() = default;
 
-	Tiquete getTiquete() const;
-	void atenderTiquete(const Tiquete& tiquete);
-	int getTiquetesAtendidos() const;
+	double atenderTiquete(const Tiquete& tiquete); // retorna tiempo de espera
 
 	std::string getNombre() const;
+	int getTiquetesAtendidos() const;
 
-	bool getTieneTiqueteActual() const;
-
-	std::string toString() const;
 	friend std::ostream& operator<<(std::ostream& os, const Ventanilla& ventanilla);
 };
