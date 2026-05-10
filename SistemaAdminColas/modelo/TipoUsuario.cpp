@@ -4,24 +4,9 @@
 
 using std::string;
 
-TipoUsuario::TipoUsuario(const string& nombre, const string& descripcion, int prioridad) {
-	this->nombre = nombre;
+TipoUsuario::TipoUsuario(const string& descripcion, int prioridad) {
 	this->descripcion = descripcion;
 	this->prioridad = prioridad;
-}
-
-string TipoUsuario::getNombre() const {
-	return nombre;
-}
-void TipoUsuario::setNombre(const string& nombre) {
-	this->nombre = nombre;
-}
-
-string TipoUsuario::getDescripcion() const {
-	return descripcion;
-}
-void TipoUsuario::setDescripcion(const string& descripcion) {
-	this->descripcion = descripcion;
 }
 
 int TipoUsuario::getPrioridad() const {
@@ -40,7 +25,7 @@ bool TipoUsuario::operator<(const TipoUsuario& other) const {
 }
 
 string TipoUsuario::toString() const {
-	return nombre + " - " + descripcion + " (prioridad: " + std::to_string(prioridad) + ")";
+	return descripcion + " (prioridad: " + std::to_string(prioridad) + ")";
 }
 std::ostream& operator<<(std::ostream& os, const TipoUsuario& usuario) {
 	os << usuario.toString();
