@@ -51,7 +51,7 @@ void Interfaz::menuAdministracion() {
 
 		int opcion = leerEnteroEnRango("Seleccione una opción: ", 1, 5);
 		switch (opcion) {
-			case 1: "menuTiposUsuario()";			break;
+			case 1: menuTiposUsuario();				break;
 			case 2: "menuAreas()";					break;
 			case 3: "menuServicios()";				break;
 			case 4: "limpiarColasYEstadisticas()";	break;
@@ -60,7 +60,77 @@ void Interfaz::menuAdministracion() {
 	}
 }
 
-// menuTiquetes, menuTiposUsuario, menuAreas, menuServicios siguen
+void Interfaz::menuTiposUsuario() {
+	bool enMenu = true;
+	while (enMenu) {
+		limpiarPantalla();
+		cout << "===== TIPOS DE USUARIO =====\n\n";
+		mostrarTiposUsuario();
+		cout << "\n1. Agregar\n";
+		cout << "2. Eliminar\n";
+		cout << "3. Regresar\n";
+
+		int opcion = leerEnteroEnRango("Seleccione una opción: ", 1, 3);
+		switch (opcion) {
+		case 1: agregarTipoUsuario();			break;
+		case 2: eliminarTipoUsuario();			break;
+		case 3: enMenu = false;					break;
+		}
+	}
+}
+
+void Interfaz::mostrarTiposUsuario() {
+	int n = sistema.getCantidadTiposUsuario();
+	if (n == 0) {
+		cout << "(No hay tipos de usuario configurados)\n";
+		return;
+	}
+	cout << "Tipos de usuario actuales:\n";
+	for (int i = 0; i < n; i++) {
+		cout << "  " << (i + 1) << ". " << sistema.getTipoUsuario(i) << "\n";
+	}
+}
+
+void Interfaz::agregarTipoUsuario() {
+	limpiarPantalla();
+	cout << "===== AGREGAR TIPO DE USUARIO =====\n\n";
+
+	string descripcion = leerTexto("Descripción: ");
+	int prioridad = leerEntero("Prioridad (menor numero = mayor prioridad): ");
+
+	sistema.agregarTipoUsuario(descripcion, prioridad);
+
+	cout << "\nTipo de usuario agregado correctamente!\n";
+	presionarParaContinuar();
+}
+
+void Interfaz::eliminarTipoUsuario() {
+	limpiarPantalla();
+
+	cout << "===== ELIMINAR TIPO DE USUARIO =====\n\n";
+	int n = sistema.getCantidadTiposUsuario();
+	if (n == 0) {
+		cout << "(No hay tipos de usuario para eliminar)\n";
+		presionarParaContinuar();
+		return;
+	}
+	mostrarTiposUsuario();
+
+	int pos = leerEnteroEnRango("\nNúmero del tipo a eliminar: ", 1, n);
+	cout << "\nADVERTENCIA: Eliminar un tipo de usuario borrará todos los tiquetes de todas las colas.\n";
+
+	if (confirmar("¿Continuar?")) {
+		sistema.eliminarTipoUsuario(pos - 1);
+		cout << "\nTipo de usuario eliminado!\n";
+	}
+	else {
+		cout << "\nOperación cancelada.\n";
+	}
+	presionarParaContinuar();
+
+}
+
+// menuTiquetes, menuAreas, menuServicios siguen
 // el mismo patrón de menuAdministracion.
 
 // ===================================================================

@@ -1,4 +1,4 @@
-#include <iostream>
+Ôªø#include <iostream>
 #include "Sistema.h"
 #include "../ed/LinkedList.h"
 #include "../modelo/TipoUsuario.h"
@@ -34,11 +34,21 @@ void Sistema::eliminarTipoUsuario(int posicion) {
 	usuarios->goToPos(posicion);
 	usuarios->remove();
 
-	// TODO: limpiar tiquetes de todas las colas
+	/*areas->goToStart();
+	while (!areas->atEnd()) {
+		Area* area = areas->getElement();
+		area->limpiarCola();
+		areas->next();
+	}*/
 }
 
-LinkedList<TipoUsuario>& Sistema::getTiposUsuario() {
-	return *usuarios;
+int Sistema::getCantidadTiposUsuario() const {
+	return usuarios->getSize();
+}
+
+const TipoUsuario& Sistema::getTipoUsuario(int pos) {
+	usuarios->goToPos(pos);
+	return usuarios->getElement();
 }
 
 // --- Servicios ---
@@ -63,11 +73,16 @@ void Sistema::reordenarServicio(int desde, int hasta) {
 	servicios->insert(s);
 }
 
-LinkedList<Servicio>& Sistema::getServicios() {
-	return *servicios;
+int Sistema::getCantidadServicios() const {
+	return servicios->getSize();
 }
 
-// --- EstadÌsticas y Limpieza ---
+const Servicio& Sistema::getServicio(int pos) {
+	servicios->goToPos(pos);
+	return servicios->getElement();
+}
+
+// --- Estad√≠sticas y Limpieza ---
 
 void Sistema::mostrarEstadisticas() {
 	cout << "===== ESTADISTICAS DEL SISTEMA =====\n\n";
@@ -98,7 +113,7 @@ void Sistema::mostrarEstadisticas() {
 		}
 	}
 
-	// TODO: estadÌsticas por ·rea (tiempo promedio, dispensados) y por ventanilla (atendidos)
+	// TODO: estad√≠sticas por √°rea (tiempo promedio, dispensados) y por ventanilla (atendidos)
 }
 
 void Sistema::limpiarColasYEstadisticas() {

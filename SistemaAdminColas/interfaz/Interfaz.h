@@ -13,11 +13,15 @@ private:
 	void menuPrincipal();
 	void menuTiquetes();
 	void menuAdministracion();
-	void menuTipoUsuario();
+	void menuTiposUsuario();
 	void menuAreas();
 	void menuServicio();
 
 	// --- Acciones ---
+	void mostrarTiposUsuario();
+	void agregarTipoUsuario();
+	void eliminarTipoUsuario();
+
 	void mostrarEstadoColas();
 	void seleccionarTipoYServicio();
 	void atenderTiquete();

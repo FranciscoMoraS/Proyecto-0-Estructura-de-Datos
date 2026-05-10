@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <string>
 #include "../ed/LinkedList.h"
@@ -19,19 +19,21 @@ public:
 	// --- Tipos de usuario ---
 	void agregarTipoUsuario(const std::string& descripcion, int prioridad);
 	void eliminarTipoUsuario(int posicion);
-	LinkedList<TipoUsuario>& getTiposUsuario();
+	int getCantidadTiposUsuario() const;
+	const TipoUsuario& getTipoUsuario(int pos);
 
 	// --- Servicios ---
 	void agregarServicio(const std::string& descripcion, int prioridad, const std::string& codigoArea);
 	void eliminarServicio(int posicion);
 	void reordenarServicio(int desde, int hasta);
-	LinkedList<Servicio>& getServicios();
+	int getCantidadServicios() const;
+	const Servicio& getServicio(int pos);
 
 	// --- Áreas (pendiente: requiere clase Area) ---
 	// void agregarArea(const std::string& descripcion, const std::string& codigo, int cantidadVentanillas);
 	// void modificarVentanillas(int posArea, int nuevaCantidad);
-	// void eliminarArea(int posicion);
-	// LinkedList<Area*>& getAreas();
+	// int getCantidadAreas() const;
+	// Area* getArea(int pos);
 
 	// --- Tiquetes (pendiente: requiere Area y Tiquete integrados) ---
 	// void solicitarTiquete(int posTipo, int posServicio);
