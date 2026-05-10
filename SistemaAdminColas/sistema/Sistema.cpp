@@ -100,3 +100,7 @@ void Sistema::mostrarEstadisticas() {
 
 	// TODO: estadísticas por área (tiempo promedio, dispensados) y por ventanilla (atendidos)
 }
+
+void Sistema::limpiarColasYEstadisticas() {
+	// TODO: cuando Area exista, recorrer areas y llamar a area->limpiarCola()
+}
