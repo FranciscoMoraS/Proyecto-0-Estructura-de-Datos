@@ -137,9 +137,14 @@
     <ClCompile Include="sistema\Sistema.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ed\HeapPriorityQueue.h" />
     <ClInclude Include="ed\LinkedList.h" />
     <ClInclude Include="ed\List.h" />
+    <ClInclude Include="ed\MinHeap.h" />
     <ClInclude Include="ed\Node.h" />
+    <ClInclude Include="ed\Pair.h" />
+    <ClInclude Include="ed\PriorityQueue.h" />
+    <ClInclude Include="ed\Util.h" />
     <ClInclude Include="interfaz\Interfaz.h" />
     <ClInclude Include="modelo\Area.h" />
     <ClInclude Include="modelo\TipoUsuario.h" />
