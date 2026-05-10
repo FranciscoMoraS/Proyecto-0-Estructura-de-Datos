@@ -1,9 +1,13 @@
 #include <string>
+#include <stdexcept>
 #include "Area.h"
+#include "Ventanilla.h"
 #include "../ed/LinkedList.h"
 #include "../ed/HeapPriorityQueue.h"
 
+
 using std::string;
+using std::runtime_error;
 
 Area::Area(const string& codigo, const string& descripcion, int cantVentanillas) {
 	this->codigo = codigo;
@@ -24,23 +28,31 @@ Area::~Area() {
 }
 
 void Area::encolarTiquete(const Tiquete& tiquete) {
-	// TODO
+	colaTiquetes->insert(tiquete, tiquete.getPrioridadFinal());
 }
 
 void Area::atenderTiquete(int numVentanilla) {
-	// TODO
+	if (numVentanilla > ventanillas->getSize())
+		throw runtime_error("Numero de ventanilla no valido.");
+	Tiquete tiquete = colaTiquetes->removeMin();
+	ventanillas->goToPos(numVentanilla);
+	Ventanilla ventanilla = ventanillas->getElement();
+	tiempoEsperaAcumulado += ventanilla.atenderTiquete(tiquete);
 }
 
 void Area::modificarVentanillas(int nuevaCantidad) {
-	// TODO
-}
-
-void Area::limpiarCola() {
-	colaTiquetes->clear();
+	ventanillas->clear();
+	for (int i = 1; i <= nuevaCantidad; i++) {
+		string nombreVentanilla = codigo + std::to_string(i);
+		ventanillas->append(Ventanilla(nombreVentanilla));
+	}
 }
 
 void Area::limpiarColaYEstadisticas() {
-	// TODO
+	colaTiquetes->clear();
+	tiquetesAtendidos = 0;
+	tiquetesDispensados = 0;
+	tiempoEsperaAcumulado = 0;
 }
 
 string Area::getCodigo() const {
