@@ -45,3 +45,10 @@ void Sistema::agregarServicio(const string& descripcion, int prioridad, const st
 	Servicio nuevo(descripcion, prioridad, codigoArea);
 	servicios->append(nuevo);
 }
+
+void Sistema::eliminarServicio(int posicion) {
+	servicios->goToPos(posicion);
+	servicios->remove();
+
+	// TODO: limpiar tiquetes de todas las colas
+}
