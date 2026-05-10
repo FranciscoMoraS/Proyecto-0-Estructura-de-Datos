@@ -19,6 +19,8 @@ private:
 
 	// --- Acciones ---
 	void mostrarTiposUsuario();
+	void agregarTipoUsuario();
+	void eliminarTipoUsuario();
 
 	void mostrarEstadoColas();
 	void seleccionarTipoYServicio();

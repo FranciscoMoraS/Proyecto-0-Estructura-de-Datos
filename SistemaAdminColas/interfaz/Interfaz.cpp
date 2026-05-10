@@ -72,7 +72,7 @@ void Interfaz::menuTiposUsuario() {
 
 		int opcion = leerEnteroEnRango("Seleccione una opción: ", 1, 3);
 		switch (opcion) {
-		case 1: "menuTiposUsuario()";			break;
+		case 1: agregarTipoUsuario();			break;
 		case 2: "menuAreas()";					break;
 		case 3: enMenu = false;					break;
 		}
@@ -89,6 +89,19 @@ void Interfaz::mostrarTiposUsuario() {
 	for (int i = 0; i < n; i++) {
 		cout << "  " << (i + 1) << ". " << sistema.getTipoUsuario(i) << "\n";
 	}
+}
+
+void Interfaz::agregarTipoUsuario() {
+	limpiarPantalla();
+	cout << "===== AGREGAR TIPO DE USUARIO =====\n\n";
+
+	string descripcion = leerTexto("Descripción: ");
+	int prioridad = leerEntero("Prioridad (menor numero = mayor prioridad): ");
+
+	sistema.agregarTipoUsuario(descripcion, prioridad);
+
+	cout << "\nTipo de usuario agregado correctamente!\n";
+	presionarParaContinuar();
 }
 
 // menuTiquetes, menuAreas, menuServicios siguen
