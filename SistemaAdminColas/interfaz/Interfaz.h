@@ -17,6 +17,22 @@ private:
 	void menuAreas();
 	void menuServicio();
 
+	// --- Acciones ---
+	void mostrarEstadoColas();
+	void seleccionarTipoYServicio();
+	void atenderTiquete();
+	void mostrarEstadisticas();
+
+	void agregarArea();
+	void modificarVentanillas();
+	void eliminarArea();
+
+	void agregarServicio();
+	void eliminarServicio();
+	void reordenarServicios();
+
+	void limpiarColasYEstadisticas();
+
 public:
 	Interfaz(Sistema& sistema);
 	void iniciar();
