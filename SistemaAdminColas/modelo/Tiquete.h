@@ -25,7 +25,7 @@ public:
 	std::time_t getHoraAtencion() const;
 	int getPrioridadFinal() const;
 
-	void marcarAtentido();	// setea horaAtencion al momento actual
+	void marcarAtendido();	// setea horaAtencion al momento actual
 	double getTiempoDeEspera() const; // en segundos, la diferencia entre atención y solicitud
 
 	bool operator<(const Tiquete& other) const;
