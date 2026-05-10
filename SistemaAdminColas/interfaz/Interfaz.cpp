@@ -28,20 +28,38 @@ void Interfaz::menuPrincipal() {
 
 	int opcion = leerEnteroEnRango("Seleccione una opción: ", 1, 6);
 	switch (opcion) {
-	case 1: "mostrarEstadoColas()";		break;
-	case 2: "menuTiquetes()";			break;
-	case 3: "atenderTiquete()";			break;
-	case 4: "menuAdministracion()";		break;
-	case 5: "mostrarEstadisticas()";	break;
-	case 6:
-		ejecutando = false;
-		std::cout << "\nSaliendo del programa...\n";
-		break;
+		case 1: "mostrarEstadoColas()";		break;
+		case 2: "menuTiquetes()";			break;
+		case 3: "atenderTiquete()";			break;
+		case 4: menuAdministracion();		break;
+		case 5: "mostrarEstadisticas()";	break;
+		case 6:
+			ejecutando = false;
+			std::cout << "\nSaliendo del programa...\n";
+			break;
 	}
 }
 
-void Interfaz::limpiarPantalla() {
-	std::system("cls");
+void Interfaz::menuAdministracion() {
+	bool enMenu = true;
+	while (enMenu) {
+		limpiarPantalla();
+		cout << "===== ADMINISTRACIÓN =====\n";
+		cout << "1. Tipos de usuario\n";
+		cout << "2. Áreas\n";
+		cout << "3. Servicios disponibles\n";
+		cout << "4. Limpiar colas y estadísticas\n";
+		cout << "5. Regresar\n";
+
+		int opcion = leerEnteroEnRango("Seleccione una opción: ", 1, 5);
+		switch (opcion) {
+			case 1: "menuTiposUsuario()";			break;
+			case 2: "menuAreas()";					break;
+			case 3: "menuServicios()";				break;
+			case 4: "limpiarColasYEstadisticas()";	break;
+			case 5: enMenu = false;					break;
+		}
+	}
 }
 
 // ===================================================================
@@ -67,4 +85,8 @@ int Interfaz::leerEnteroEnRango(const std::string& prompt, int min, int max) {
 			return valor;
 		cout << "El valor debe estar entre " << min << " y " << max << ".\n";
 	}
+}
+
+void Interfaz::limpiarPantalla() {
+	std::system("cls");
 }
