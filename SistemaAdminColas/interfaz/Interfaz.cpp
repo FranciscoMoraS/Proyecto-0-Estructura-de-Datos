@@ -4,6 +4,7 @@
 #include "Interfaz.h"
 
 using std::cout;
+using std::string;
 
 Interfaz::Interfaz(Sistema& sistema) : sistema(sistema), ejecutando(true) {}
 
@@ -62,14 +63,17 @@ void Interfaz::menuAdministracion() {
 	}
 }
 
+// menuTiquetes, menuTiposUsuario, menuAreas, menuServicios siguen
+// el mismo patrón de menuAdministracion.
+
 // ===================================================================
 // HELPERS DE E/S
 // ===================================================================
-int Interfaz::leerEntero(const std::string& prompt) {
+int Interfaz::leerEntero(const string& prompt) {
 	int valor;
 	while (true) {
 		cout << prompt;
-		std::string linea;
+		string linea;
 		std::getline(std::cin, linea);
 		std::stringstream ss(linea);
 		if (ss >> valor && (ss >> std::ws).eof())
@@ -78,13 +82,33 @@ int Interfaz::leerEntero(const std::string& prompt) {
 	}
 }
 
-int Interfaz::leerEnteroEnRango(const std::string& prompt, int min, int max) {
+int Interfaz::leerEnteroEnRango(const string& prompt, int min, int max) {
 	while (true) {
 		int valor = leerEntero(prompt);
 		if (valor >= min && valor <= max)
 			return valor;
 		cout << "El valor debe estar entre " << min << " y " << max << ".\n";
 	}
+}
+
+string Interfaz::leerTexto(const string& prompt) {
+	cout << prompt;
+	string texto;
+	std::getline(std::cin, texto);
+	return texto;
+}
+
+bool Interfaz::confirmar(const string& mensaje) {
+	cout << mensaje << " [s para confirmar]: ";
+	string respuesta;
+	std::getline(std::cin, respuesta);
+	return !respuesta.empty() && (respuesta[0] == 's' || respuesta[0] == 'S');
+}
+
+void Interfaz::presionarParaContinuar() {
+	std::cout << "\nPresione ENTER para continuar...";
+	string dummy;
+	std::getline(std::cin, dummy);
 }
 
 void Interfaz::limpiarPantalla() {
