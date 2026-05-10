@@ -24,10 +24,7 @@ bool TipoUsuario::operator<(const TipoUsuario& other) const {
 	return prioridad < other.prioridad;
 }
 
-string TipoUsuario::toString() const {
-	return descripcion + " (prioridad: " + std::to_string(prioridad) + ")";
-}
 std::ostream& operator<<(std::ostream& os, const TipoUsuario& usuario) {
-	os << usuario.toString();
+	os << usuario.descripcion + " (prioridad: " + std::to_string(usuario.prioridad) + ")";
 	return os;
 }

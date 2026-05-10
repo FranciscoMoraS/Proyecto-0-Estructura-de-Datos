@@ -23,6 +23,5 @@ public:
 
 	bool operator<(const TipoUsuario& other) const;
 
-	std::string toString() const;
 	friend std::ostream& operator<<(std::ostream& os, const TipoUsuario& usuario);
 };
