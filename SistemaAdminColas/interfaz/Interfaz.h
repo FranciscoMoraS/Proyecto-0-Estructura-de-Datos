@@ -22,6 +22,11 @@ private:
 	void agregarTipoUsuario();
 	void eliminarTipoUsuario();
 
+	void mostrarServicios();
+	void agregarServicio();
+	void eliminarServicio();
+	void reordenarServicios();
+
 	void mostrarEstadoColas();
 	void seleccionarTipoYServicio();
 	void atenderTiquete();
@@ -32,10 +37,6 @@ private:
 	void modificarVentanillas();
 	void eliminarArea();
 	void mostrarServiciosDeArea(const std::string& codigoArea);
-
-	void agregarServicio();
-	void eliminarServicio();
-	void reordenarServicios();
 
 	void limpiarColasYEstadisticas();
 

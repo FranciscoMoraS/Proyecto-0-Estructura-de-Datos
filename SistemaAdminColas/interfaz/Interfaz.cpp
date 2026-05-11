@@ -53,7 +53,7 @@ void Interfaz::menuAdministracion() {
 		switch (opcion) {
 			case 1: menuTiposUsuario();				break;
 			case 2: menuAreas();					break;
-			case 3: "menuServicios()";				break;
+			case 3: menuServicio();					break;
 			case 4: "limpiarColasYEstadisticas()";	break;
 			case 5: enMenu = false;					break;
 		}
@@ -98,6 +98,53 @@ void Interfaz::menuAreas() {
 		case 4: enMenu = false;             break;
 		}
 	}
+}
+
+void Interfaz::menuServicio() {
+	bool enMenu = true;
+	while (enMenu) {
+		limpiarPantalla();
+		cout << "===== SERVICIOS DISPONIBLES =====\n\n";
+		mostrarServicios();
+		cout << "\n1. Agregar\n";
+		cout << "2. Eliminar\n";
+		cout << "3. Reordenar\n";
+		cout << "4. Regresar\n";
+
+		int opcion = leerEnteroEnRango("Seleccione una opcion: ", 1, 4);
+		switch (opcion) {
+		case 1: agregarServicio();			  break;
+		case 2: eliminarServicio();			  break;
+		case 3: reordenarServicios();		  break;
+		case 4: enMenu = false;               break;
+		}
+	}
+}
+
+void Interfaz::reordenarServicios() {
+	limpiarPantalla();
+	cout << "===== REORDENAR SERVICIOS =====\n\n";
+
+	int n = sistema.getCantidadServicios();
+	if (n < 2) {
+		cout << "Se necesitan al menos dos servicios para reordenar.\n";
+		presionarParaContinuar();
+		return;
+	}
+	mostrarServicios();
+
+	int desde = leerEnteroEnRango("\nNúmero del servicio a reubicar: ", 1, n);
+	int hasta = leerEnteroEnRango("Posición destino: ", 1, n);
+
+	if (desde == hasta) {
+		cout << "\nNo hay cambio de posición.\n";
+	}
+	else {
+		sistema.reordenarServicio(desde - 1, hasta - 1);
+		cout << "\nServicio reubicado correctamente.\n";
+	}
+
+	presionarParaContinuar();
 }
 
 // ===================================================================
@@ -152,6 +199,70 @@ void Interfaz::eliminarTipoUsuario() {
 	}
 	presionarParaContinuar();
 
+}
+
+void Interfaz::mostrarServicios() {
+	int n = sistema.getCantidadServicios();
+	if (n == 0) {
+		cout << "(No hay servicios configurados)\n";
+		return;
+	}
+	cout << "Servicios actuales:\n";
+	for (int i = 0; i < n; i++) {
+		cout << "  " << (i + 1) << ". " << sistema.getServicio(i) << "\n";
+	}
+}
+
+void Interfaz::agregarServicio() {
+	limpiarPantalla();
+	cout << "===== AGREGAR SERVICIO =====\n\n";
+
+	int numAreas = sistema.getCantidadAreas();
+	if (numAreas == 0) {
+		cout << "Debe existir al menos un área antes de agregar un servicio.\n";
+		presionarParaContinuar();
+		return;
+	}
+
+	string descripcion = leerTexto("Descripción: ");
+	int prioridad = leerEntero("Prioridad (menor numero = mayor prioridad): ");
+
+	mostrarAreas();
+
+	int posArea = leerEnteroEnRango("\nÁrea de atención: ", 1, numAreas);
+	Area* area = sistema.getArea(posArea - 1);
+	string codigoArea = area->getCodigo();
+
+	sistema.agregarServicio(descripcion, prioridad, codigoArea);
+
+	cout << "\nServicio agregado correctamente!\n";
+	presionarParaContinuar();
+}
+
+void Interfaz::eliminarServicio() {
+	limpiarPantalla();
+	cout << "===== ELIMINAR SERVICIO =====\n\n";
+
+	int n = sistema.getCantidadServicios();
+	if (n == 0) {
+		cout << "(No hay servicios configurados)\n";
+		presionarParaContinuar();
+		return;
+	}
+	mostrarServicios();
+
+	int pos = leerEnteroEnRango("\nNúmero del servicio a eliminar: ", 1, n);
+	cout << "\nADVERTENCIA: Eliminar un servicio borrará todos los tiquetes de las colas de todas las áreas.\n";
+
+	if (confirmar("¿Continuar?")) {
+		sistema.eliminarServicio(pos - 1);
+		cout << "\nServicio eliminado!\n";
+	}
+	else {
+		cout << "\nOperación cancelada.\n";
+	}
+
+	presionarParaContinuar();
 }
 
 void Interfaz::mostrarEstadoColas() {
