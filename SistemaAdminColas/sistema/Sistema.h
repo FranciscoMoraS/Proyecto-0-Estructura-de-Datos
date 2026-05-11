@@ -4,7 +4,7 @@
 #include "../ed/LinkedList.h"
 #include "../modelo/TipoUsuario.h"
 #include "../modelo/Servicio.h"
-//#include "../modelo/Area.h"
+#include "../modelo/Area.h"
 
 class Sistema {
 private:

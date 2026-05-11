@@ -1,4 +1,6 @@
-﻿#include <clocale>
+﻿#define NOMINMAX
+
+#include <clocale>
 #include <Windows.h>
 #include "sistema/Sistema.h"
 #include "interfaz/Interfaz.h"
