@@ -78,7 +78,36 @@ void Area::limpiarColaYEstadisticas() {
 }
 
 void Area::imprimirCola() const {
-	colaTiquetes->print();
+	if (colaTiquetes->isEmpty()) {
+		std::cout << "(vacia)\n";
+		return;
+	}
+
+	// Extraer todos los tiquetes a una lista temporal
+	LinkedList<Tiquete> temp;
+	while (!colaTiquetes->isEmpty()) {
+		temp.append(colaTiquetes->removeMin());
+	}
+
+	// Imprimir solo los códigos
+	std::cout << "[ ";
+	temp.goToStart();
+	bool primero = true;
+	while (!temp.atEnd()) {
+		if (!primero) std::cout << ", ";
+		std::cout << temp.getElement().getCodigo();
+		temp.next();
+		primero = false;
+	}
+	std::cout << " ]\n";
+
+	// Reinsertar en el heap (no llamar a encolarTiquete porque sumaría a dispensados)
+	temp.goToStart();
+	while (!temp.atEnd()) {
+		const Tiquete& t = temp.getElement();
+		colaTiquetes->insert(t, t.getPrioridadFinal());
+		temp.next();
+	}
 }
 
 string Area::getCodigo() const {
