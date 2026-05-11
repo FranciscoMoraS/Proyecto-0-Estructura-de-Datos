@@ -20,15 +20,15 @@ void Interfaz::iniciar() {
 // ===================================================================
 void Interfaz::menuPrincipal() {
 	limpiarPantalla();
-	cout << "===== SISTEMA DE ADMINISTRACIÓN DE COLAS =====\n";
+	cout << "===== SISTEMA DE ADMINISTRACION DE COLAS =====\n";
 	cout << "1. Estado de las colas\n";
 	cout << "2. Tiquetes\n";
 	cout << "3. Atender\n";
-	cout << "4. Administración\n";
-	cout << "5. Estadísticas del sistema\n";
+	cout << "4. Administracion\n";
+	cout << "5. Estadisticas del sistema\n";
 	cout << "6. Salir\n";
 
-	int opcion = leerEnteroEnRango("Seleccione una opción: ", 1, 6);
+	int opcion = leerEnteroEnRango("Seleccione una opcion: ", 1, 6);
 	switch (opcion) {
 		case 1: mostrarEstadoColas();		break;
 		case 2: menuTiquetes();				break;
@@ -47,7 +47,7 @@ void Interfaz::menuTiquetes() {
 		cout << "1. Solicitar\n";
 		cout << "2. Regresar\n";
 
-		int opcion = leerEnteroEnRango("Seleccione una opción: ", 1, 2);
+		int opcion = leerEnteroEnRango("Seleccione una opcion: ", 1, 2);
 		switch (opcion) {
 		case 1: solicitarTiquete();     break;
 		case 2: enMenu = false;         break;
@@ -59,14 +59,14 @@ void Interfaz::menuAdministracion() {
 	bool enMenu = true;
 	while (enMenu) {
 		limpiarPantalla();
-		cout << "===== ADMINISTRACIÓN =====\n";
+		cout << "===== ADMINISTRACION =====\n";
 		cout << "1. Tipos de usuario\n";
-		cout << "2. Áreas\n";
+		cout << "2. Areas\n";
 		cout << "3. Servicios disponibles\n";
-		cout << "4. Limpiar colas y estadísticas\n";
+		cout << "4. Limpiar colas y estadisticas\n";
 		cout << "5. Regresar\n";
 
-		int opcion = leerEnteroEnRango("Seleccione una opción: ", 1, 5);
+		int opcion = leerEnteroEnRango("Seleccione una opcion: ", 1, 5);
 		switch (opcion) {
 			case 1: menuTiposUsuario();				break;
 			case 2: menuAreas();					break;
@@ -87,7 +87,7 @@ void Interfaz::menuTiposUsuario() {
 		cout << "2. Eliminar\n";
 		cout << "3. Regresar\n";
 
-		int opcion = leerEnteroEnRango("Seleccione una opción: ", 1, 3);
+		int opcion = leerEnteroEnRango("Seleccione una opcion: ", 1, 3);
 		switch (opcion) {
 		case 1: agregarTipoUsuario();			break;
 		case 2: eliminarTipoUsuario();			break;
@@ -107,7 +107,7 @@ void Interfaz::menuAreas() {
 		cout << "3. Eliminar\n";
 		cout << "4. Regresar\n";
 
-		int opcion = leerEnteroEnRango("Seleccione una opción: ", 1, 4);
+		int opcion = leerEnteroEnRango("Seleccione una opcion: ", 1, 4);
 		switch (opcion) {
 		case 1: agregarArea();              break;
 		case 2: modificarVentanillas();     break;
@@ -150,11 +150,11 @@ void Interfaz::reordenarServicios() {
 	}
 	mostrarServicios();
 
-	int desde = leerEnteroEnRango("\nNúmero del servicio a reubicar: ", 1, n);
-	int hasta = leerEnteroEnRango("Posición destino: ", 1, n);
+	int desde = leerEnteroEnRango("\nNumero del servicio a reubicar: ", 1, n);
+	int hasta = leerEnteroEnRango("Posicion destino: ", 1, n);
 
 	if (desde == hasta) {
-		cout << "\nNo hay cambio de posición.\n";
+		cout << "\nNo hay cambio de posicion.\n";
 	}
 	else {
 		sistema.reordenarServicio(desde - 1, hasta - 1);
@@ -183,7 +183,7 @@ void Interfaz::agregarTipoUsuario() {
 	limpiarPantalla();
 	cout << "===== AGREGAR TIPO DE USUARIO =====\n\n";
 
-	string descripcion = leerTexto("Descripción: ");
+	string descripcion = leerTexto("Descripcion: ");
 	int prioridad = leerEntero("Prioridad (menor numero = mayor prioridad): ");
 
 	sistema.agregarTipoUsuario(descripcion, prioridad);
@@ -204,7 +204,7 @@ void Interfaz::eliminarTipoUsuario() {
 	}
 	mostrarTiposUsuario();
 
-	int pos = leerEnteroEnRango("\nNúmero del tipo a eliminar: ", 1, n);
+	int pos = leerEnteroEnRango("\nNumero del tipo a eliminar: ", 1, n);
 	cout << "\nADVERTENCIA: Eliminar un tipo de usuario borrara todos los tiquetes de todas las colas.\n";
 
 	if (confirmar("¿Continuar?")) {
@@ -212,7 +212,7 @@ void Interfaz::eliminarTipoUsuario() {
 		cout << "\nTipo de usuario eliminado!\n";
 	}
 	else {
-		cout << "\nOperación cancelada.\n";
+		cout << "\nOperacion cancelada.\n";
 	}
 	presionarParaContinuar();
 
@@ -241,12 +241,12 @@ void Interfaz::agregarServicio() {
 		return;
 	}
 
-	string descripcion = leerTexto("Descripción: ");
+	string descripcion = leerTexto("Descripcion: ");
 	int prioridad = leerEntero("Prioridad (menor numero = mayor prioridad): ");
 
 	mostrarAreas();
 
-	int posArea = leerEnteroEnRango("\nÁrea de atención: ", 1, numAreas);
+	int posArea = leerEnteroEnRango("\nArea de atencion: ", 1, numAreas);
 	Area* area = sistema.getArea(posArea - 1);
 	string codigoArea = area->getCodigo();
 
@@ -268,15 +268,15 @@ void Interfaz::eliminarServicio() {
 	}
 	mostrarServicios();
 
-	int pos = leerEnteroEnRango("\nNúmero del servicio a eliminar: ", 1, n);
-	cout << "\nADVERTENCIA: Eliminar un servicio borrará todos los tiquetes de las colas de todas las áreas.\n";
+	int pos = leerEnteroEnRango("\nNumero del servicio a eliminar: ", 1, n);
+	cout << "\nADVERTENCIA: Eliminar un servicio borrara todos los tiquetes de las colas de todas las areas.\n";
 
 	if (confirmar("¿Continuar?")) {
 		sistema.eliminarServicio(pos - 1);
 		cout << "\nServicio eliminado!\n";
 	}
 	else {
-		cout << "\nOperación cancelada.\n";
+		cout << "\nOperacion cancelada.\n";
 	}
 
 	presionarParaContinuar();
@@ -288,7 +288,7 @@ void Interfaz::mostrarEstadoColas() {
 
 	int numAreas = sistema.getCantidadAreas();
 	if (numAreas == 0) {
-		cout << "(No hay áreas configuradas)\n";
+		cout << "(No hay areas configuradas)\n";
 		presionarParaContinuar();
 		return;
 	}
@@ -313,10 +313,10 @@ void Interfaz::mostrarEstadoColas() {
 void Interfaz::mostrarAreas() {
 	int n = sistema.getCantidadAreas();
 	if (n == 0) {
-		cout << "(No hay áreas configuradas)\n";
+		cout << "(No hay areas configuradas)\n";
 		return;
 	}
-	cout << "Áreas actuales:\n";
+	cout << "Areas actuales:\n";
 	for (int i = 0; i < n; i++) {
 		cout << "  " << (i + 1) << ". " << *sistema.getArea(i) << "\n";
 	}
@@ -326,23 +326,23 @@ void Interfaz::agregarArea() {
 	limpiarPantalla();
 	cout << "===== AGREGAR AREA =====\n\n";
 
-	string codigo = leerTexto("Código del área (ej: C, S, E): ");
+	string codigo = leerTexto("Codigo del area (ej: C, S, E): ");
 
 	int n = sistema.getCantidadAreas();
 	for (int i = 0; i < n; i++) {
 		if (sistema.getArea(i)->getCodigo() == codigo) {
-			cout << "\nError: ya existe un área con código '" << codigo << "'.\n";
+			cout << "\nError: ya existe un area con codigo '" << codigo << "'.\n";
 			presionarParaContinuar();
 			return;
 		}
 	}
 
-	string descripcion = leerTexto("Descripción: ");
+	string descripcion = leerTexto("Descripcion: ");
 	int cantVentanillas = leerEnteroEnRango("Cantidad de ventanillas: ", 1, 999);
 
 	sistema.agregarArea(codigo, descripcion, cantVentanillas);
 
-	cout << "\nÁrea agregada correctamente!\n";
+	cout << "\nArea agregada correctamente!\n";
 	presionarParaContinuar();
 }
 
@@ -352,18 +352,18 @@ void Interfaz::modificarVentanillas() {
 
 	int n = sistema.getCantidadAreas();
 	if (n == 0) {
-		cout << "(No hay áreas configuradas)\n";
+		cout << "(No hay areas configuradas)\n";
 		presionarParaContinuar();
 		return;
 	}
 	mostrarAreas();
 
-	int pos = leerEnteroEnRango("\nNúmero del área a modificar: ", 1, n);
+	int pos = leerEnteroEnRango("\nNumero del area a modificar: ", 1, n);
 
 	cout << "\nVentanillas actuales: " << sistema.getCantidadVentanillas(pos-1) << "\n";
 	int nueva = leerEnteroEnRango("Nueva cantidad: ", 1, 999);
 
-	cout << "\nADVERTENCIA: las ventanillas actuales se eliminarán y se crearán\n"
+	cout << "\nADVERTENCIA: las ventanillas actuales se eliminaran y se crearan\n"
 		<< "de nuevo. Los tiquetes en cola se mantienen.\n";
 
 	if (confirmar("¿Continuar?")) {
@@ -371,7 +371,7 @@ void Interfaz::modificarVentanillas() {
 		cout << "\nCantidad de ventanillas modificada.\n";
 	}
 	else {
-		cout << "\nOperación cancelada.\n";
+		cout << "\nOperacion cancelada.\n";
 	}
 
 	presionarParaContinuar();
@@ -383,30 +383,30 @@ void Interfaz::eliminarArea() {
 
 	int n = sistema.getCantidadAreas();
 	if (n == 0) {
-		cout << "(No hay áreas configuradas)\n";
+		cout << "(No hay areas configuradas)\n";
 		presionarParaContinuar();
 		return;
 	}
 	mostrarAreas();
 
-	int pos = leerEnteroEnRango("\nNúmero del área a eliminar: ", 1, n);
+	int pos = leerEnteroEnRango("\nNumero del area a eliminar: ", 1, n);
 	Area* area = sistema.getArea(pos - 1);
 	string codigo = area->getCodigo();
 
-	cout << "\nServicios que también se eliminarán:\n";
+	cout << "\nServicios que tambien se eliminaran:\n";
 	mostrarServiciosDeArea(codigo);
 
-	cout << "\nADVERTENCIA: eliminar esta área también:\n"
+	cout << "\nADVERTENCIA: eliminar esta area tambien:\n"
 		<< "  - Borra todas sus ventanillas\n"
 		<< "  - Elimina los servicios listados arriba\n"
-		<< "  - Vacía las colas de todas las áreas restantes\n";
+		<< "  - Vacía las colas de todas las areas restantes\n";
 
 	if (confirmar("¿Continuar?")) {
 		sistema.eliminarArea(pos - 1);
-		cout << "\nÁrea eliminada!\n";
+		cout << "\nArea eliminada!\n";
 	}
 	else {
-		cout << "\nOperación cancelada.\n";
+		cout << "\nOperacion cancelada.\n";
 	}
 
 	presionarParaContinuar();
@@ -435,18 +435,18 @@ void Interfaz::atenderTiquete() {
 
 	int nAreas = sistema.getCantidadAreas();
 	if (nAreas == 0) {
-		cout << "No hay áreas configuradas.\n";
+		cout << "No hay areas configuradas.\n";
 		presionarParaContinuar();
 		return;
 	}
 
 	mostrarAreas();
-	int posArea = leerEnteroEnRango("\nSeleccione el área: ", 1, nAreas);
+	int posArea = leerEnteroEnRango("\nSeleccione el area: ", 1, nAreas);
 	Area* area = sistema.getArea(posArea - 1);
 
 	int enCola = area->getCantidadEnCola();
 	if (enCola == 0) {
-		cout << "\nNo hay tiquetes en cola para esta área.\n";
+		cout << "\nNo hay tiquetes en cola para esta area.\n";
 		presionarParaContinuar();
 		return;
 	}
@@ -541,10 +541,10 @@ void Interfaz::mostrarEstadisticas() {
 		}
 	}
 
-	cout << "\n--- Estadísticas por área ---\n";
+	cout << "\n--- Estadisticas por area ---\n";
 	int nAreas = sistema.getCantidadAreas();
 	if (nAreas == 0) {
-		cout << "  (No hay áreas configuradas)\n";
+		cout << "  (No hay areas configuradas)\n";
 	}
 	else {
 		for (int i = 0; i < nAreas; i++) {
@@ -575,21 +575,21 @@ void Interfaz::limpiarColasYEstadisticas() {
 	limpiarPantalla();
 	cout << "===== LIMPIAR COLAS Y ESTADISTICAS =====\n\n";
 
-	cout << "Esta operación:\n"
+	cout << "Esta operacion:\n"
 		<< "  - Borra TODOS los tiquetes de TODAS las colas\n"
-		<< "  - Resetea TODOS los contadores estadísticos a cero:\n"
+		<< "  - Resetea TODOS los contadores estadisticos a cero:\n"
 		<< "      * Tiquetes por tipo de usuario\n"
 		<< "      * Tiquetes por servicio\n"
-		<< "      * Tiquetes dispensados y atendidos por área\n"
-		<< "      * Tiempo de espera acumulado por área\n"
+		<< "      * Tiquetes dispensados y atendidos por area\n"
+		<< "      * Tiempo de espera acumulado por area\n"
 		<< "      * Tiquetes atendidos por ventanilla\n";
 
-	if (confirmar("\n¿Continuar? Esta acción no se puede deshacer.")) {
+	if (confirmar("\n¿Continuar? Esta accion no se puede deshacer.")) {
 		sistema.limpiarColasYEstadisticas();
-		cout << "\nColas y estadísticas reiniciadas correctamente!\n";
+		cout << "\nColas y estadisticas reiniciadas correctamente!\n";
 	}
 	else {
-		cout << "\nOperación cancelada.\n";
+		cout << "\nOperacion cancelada.\n";
 	}
 
 	presionarParaContinuar();
@@ -607,7 +607,7 @@ int Interfaz::leerEntero(const string& prompt) {
 		std::stringstream ss(linea);
 		if (ss >> valor && (ss >> std::ws).eof())
 			return valor;
-		cout << "Entrada inválida. Ingrese un número entero.\n";
+		cout << "Entrada invalida. Ingrese un numero entero.\n";
 	}
 }
 
