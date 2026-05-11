@@ -37,7 +37,7 @@ public:
 	Area* getArea(int pos);
 
 	// --- Tiquetes ---
-	void solicitarTiquete(int posTipo, int posServicio);
+	Tiquete solicitarTiquete(int posTipo, int posServicio);
 	void atenderTiquete(int posArea, int numVentanilla);
 
 	// --- Estadísticas y limpieza ---

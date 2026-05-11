@@ -128,6 +128,40 @@ Area* Sistema::getArea(int pos) {
 	return areas->getElement();
 }
 
+// --- Tiquetes ---
+Tiquete Sistema::solicitarTiquete(int posTipo, int posServicio) {
+	usuarios->goToPos(posTipo);
+	TipoUsuario tipo = usuarios->getElement();
+	tipo.aumentarTiquetes();
+	int prioridadUsuario = tipo.getPrioridad();
+	usuarios->setElement(tipo);
+
+	servicios->goToPos(posServicio);
+	Servicio servicio = servicios->getElement();
+	servicio.aumentarTiquetes();
+	int prioridadServicio = servicio.getPrioridad();
+	string codigoArea = servicio.getCodigoArea();
+	servicios->setElement(servicio);
+
+	int prioridadFinal = prioridadUsuario * 10 + prioridadServicio;
+
+	Area* area = nullptr;
+	areas->goToStart();
+	while (!areas->atEnd()) {
+		Area* a = areas->getElement();
+		if (a->getCodigo() == codigoArea) {
+			area = a;
+			break;
+		}
+		areas->next();
+	}
+
+	Tiquete t(codigoArea, prioridadFinal);
+	area->encolarTiquete(t);
+
+	return t;
+}
+
 // --- Estadísticas y Limpieza ---
 
 void Sistema::mostrarEstadisticas() {

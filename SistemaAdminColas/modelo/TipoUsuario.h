@@ -17,6 +17,7 @@ public:
 	~TipoUsuario() = default;
 
 	int getPrioridad() const;
+	std::string getDescripcion() const;
 
 	void aumentarTiquetes();
 	int getTotalTiquetes() const;

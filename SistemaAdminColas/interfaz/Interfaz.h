@@ -29,13 +29,15 @@ private:
 
 	void mostrarEstadoColas();
 	void seleccionarTipoYServicio();
-	void atenderTiquete();
 
 	void mostrarAreas();
 	void agregarArea();
 	void modificarVentanillas();
 	void eliminarArea();
 	void mostrarServiciosDeArea(const std::string& codigoArea);
+
+	void atenderTiquete();
+	void solicitarTiquete();
 
 	void mostrarEstadisticas();
 

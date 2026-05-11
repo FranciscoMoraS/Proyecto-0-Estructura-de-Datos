@@ -7,11 +7,11 @@ using std::string;
 
 int Tiquete::consecutivo = 100;
 
-Tiquete::Tiquete(const string& codigoArea, int prioridadUsuario, int prioridadServicio) {
+Tiquete::Tiquete(const string& codigoArea, int prioridadFinal) {
 	codigo = codigoArea + std::to_string(consecutivo);
 	consecutivo++;
 	horaSolicitud = std::time(nullptr);
-	prioridadFinal = prioridadUsuario * 10 + prioridadServicio;
+	this->prioridadFinal = prioridadFinal;
 }
 
 void Tiquete::marcarAtendido() {

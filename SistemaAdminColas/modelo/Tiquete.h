@@ -15,7 +15,7 @@ private:
 
 public:
 	Tiquete() = default;
-	Tiquete(const std::string& codigoArea, int prioridadUsuario, int prioridadServicio);
+	Tiquete(const std::string& codigoArea, int prioridadFinal);
 	Tiquete(const Tiquete&) = default;
 	Tiquete& operator=(const Tiquete&) = default;
 	~Tiquete() = default;

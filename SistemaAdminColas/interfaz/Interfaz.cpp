@@ -31,11 +31,27 @@ void Interfaz::menuPrincipal() {
 	int opcion = leerEnteroEnRango("Seleccione una opción: ", 1, 6);
 	switch (opcion) {
 		case 1: mostrarEstadoColas();		break;
-		case 2: "menuTiquetes()";			break;
+		case 2: menuTiquetes();				break;
 		case 3: atenderTiquete();			break;
 		case 4: menuAdministracion();		break;
 		case 5: mostrarEstadisticas();		break;
 		case 6: ejecutando = false;			break;
+	}
+}
+
+void Interfaz::menuTiquetes() {
+	bool enMenu = true;
+	while (enMenu) {
+		limpiarPantalla();
+		cout << "===== TIQUETES =====\n\n";
+		cout << "1. Solicitar\n";
+		cout << "2. Regresar\n";
+
+		int opcion = leerEnteroEnRango("Seleccione una opción: ", 1, 2);
+		switch (opcion) {
+		case 1: solicitarTiquete();     break;
+		case 2: enMenu = false;         break;
+		}
 	}
 }
 
@@ -412,9 +428,50 @@ void Interfaz::mostrarServiciosDeArea(const string& codigoArea) {
 	}
 }
 
+// -- Tiquetes --
+
 void Interfaz::atenderTiquete() {
 	limpiarPantalla();
 	cout << "[TODO: atender tiquete]\n";
+	presionarParaContinuar();
+}
+
+void Interfaz::solicitarTiquete() {
+	limpiarPantalla();
+	cout << "===== SOLICITAR TIQUETE =====\n\n";
+
+	int nTipos = sistema.getCantidadTiposUsuario();
+	if (nTipos == 0) {
+		cout << "Debe existir al menos un tipo de usuario configurado.\n";
+		presionarParaContinuar();
+		return;
+	}
+	int nServ = sistema.getCantidadServicios();
+	if (nServ == 0) {
+		cout << "Debe existir al menos un servicio configurado.\n";
+		presionarParaContinuar();
+		return;
+	}
+
+	cout << "Tipos de usuario disponibles:\n";
+	for (int i = 0; i < nTipos; i++) {
+		const TipoUsuario& t = sistema.getTipoUsuario(i);
+		cout << "  " << (i + 1) << ". " << t.getDescripcion() << "\n";
+	}
+	int posTipo = leerEnteroEnRango("\nSeleccione tipo de usuario: ", 1, nTipos);
+
+	cout << "\nServicios disponibles:\n";
+	for (int i = 0; i < nServ; i++) {
+		const Servicio& s = sistema.getServicio(i);
+		cout << "  " << (i + 1) << ". " << s << "\n";
+	}
+	int posServ = leerEnteroEnRango("\nSeleccione servicio: ", 1, nServ);
+
+	Tiquete t = sistema.solicitarTiquete(posTipo - 1, posServ - 1);
+
+	cout << "\n===== TIQUETE EMITIDO =====\n";
+	cout << t << "\n";
+
 	presionarParaContinuar();
 }
 

@@ -13,6 +13,10 @@ int TipoUsuario::getPrioridad() const {
 	return prioridad;
 }
 
+std::string TipoUsuario::getDescripcion() const {
+	return descripcion;
+}
+
 void TipoUsuario::aumentarTiquetes() {
 	totalTiquetes++;
 }
