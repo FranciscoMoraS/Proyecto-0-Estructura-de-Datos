@@ -163,5 +163,25 @@ void Sistema::mostrarEstadisticas() {
 }
 
 void Sistema::limpiarColasYEstadisticas() {
-	// TODO: cuando Area exista
+	usuarios->goToStart();
+	while (!usuarios->atEnd()) {
+		TipoUsuario t = usuarios->getElement();
+		t.resetearTiquetes();
+		usuarios->setElement(t);
+		usuarios->next();
+	}
+
+	servicios->goToStart();
+	while (!servicios->atEnd()) {
+		Servicio s = servicios->getElement();
+		s.resetearTiquetes();
+		servicios->setElement(s);
+		servicios->next();
+	}
+
+	areas->goToStart();
+	while (!areas->atEnd()) {
+		areas->getElement()->limpiarColaYEstadisticas();
+		areas->next();
+	}
 }
