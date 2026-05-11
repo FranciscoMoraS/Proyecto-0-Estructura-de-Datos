@@ -45,6 +45,11 @@ void Area::atenderTiquete(int numVentanilla) {
 	tiempoEsperaAcumulado += espera;
 }
 
+const Ventanilla& Area::getVentanilla(int pos) {
+	ventanillas->goToPos(pos);
+	return ventanillas->getElement();
+}
+
 void Area::modificarVentanillas(int nuevaCantidad) {
 	ventanillas->clear();
 	for (int i = 1; i <= nuevaCantidad; i++) {

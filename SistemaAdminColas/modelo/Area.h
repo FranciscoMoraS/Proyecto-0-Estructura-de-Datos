@@ -29,6 +29,7 @@ public:
 	void atenderTiquete(int numVentanilla);
 
 	// --- Modificación de ventanillas ---
+	const Ventanilla& getVentanilla(int pos);
 	void modificarVentanillas(int nuevaCantidad);
 
 	// --- limpieza ---
