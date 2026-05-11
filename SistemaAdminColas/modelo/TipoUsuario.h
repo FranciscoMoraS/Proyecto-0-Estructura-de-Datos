@@ -1,3 +1,16 @@
+/*
+ * Archivo: TipoUsuario.h
+ * Autores: Edwin Muñoz y Francisco Mora
+ *
+ * Declaración de la clase TipoUsuario, que representa una categoría
+ * de cliente del sistema (por ejemplo: adulto mayor, persona con
+ * discapacidad, cliente regular). Cada tipo tiene una descripción,
+ * una prioridad numérica utilizada en el cálculo del peso final de
+ * los tiquetes y un contador acumulado de tiquetes solicitados por
+ * usuarios de esta categoría.
+ *
+ */
+
 #pragma once
 
 #include <iostream>
