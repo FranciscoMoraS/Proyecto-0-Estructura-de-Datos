@@ -1,4 +1,19 @@
-﻿#include <iostream>
+﻿/*
+ * Archivo: Interfaz.cpp
+ * Autores: Edwin Muñoz y Francisco Mora
+ *
+ * Implementación de la interfaz de usuario por consola. Maneja toda la
+ * navegación entre menús (principal, tiquetes, administración, tipos
+ * de usuario, áreas, servicios), la presentación del estado del
+ * sistema y las estadísticas, y centraliza los helpers de entrada y
+ * salida (lectura de enteros con validación de rango, lectura de
+ * texto no vacío, confirmaciones, limpieza de pantalla). Toda la
+ * validación de entradas del usuario ocurre acá antes de delegar las
+ * operaciones a Sistema.
+ *
+ */
+
+#include <iostream>
 #include <sstream>
 #include <cstdlib>
 #include <iomanip>
@@ -427,8 +442,6 @@ void Interfaz::mostrarServiciosDeArea(const string& codigoArea) {
 	}
 }
 
-// -- Tiquetes --
-
 void Interfaz::atenderTiquete() {
 	limpiarPantalla();
 	cout << "===== ATENDER TIQUETE =====\n\n";
@@ -511,8 +524,6 @@ void Interfaz::solicitarTiquete() {
 	presionarParaContinuar();
 }
 
-// -- Estadísticas --
-
 void Interfaz::mostrarEstadisticas() {
 	limpiarPantalla();
 	cout << "===== ESTADISTICAS DEL SISTEMA =====\n\n";
@@ -568,8 +579,6 @@ void Interfaz::mostrarEstadisticas() {
 
 	presionarParaContinuar();
 }
-
-// --- Limpieza ---
 
 void Interfaz::limpiarColasYEstadisticas() {
 	limpiarPantalla();
