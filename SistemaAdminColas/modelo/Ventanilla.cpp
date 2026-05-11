@@ -1,3 +1,14 @@
+/*
+ * Archivo: Ventanilla.cpp
+ * Autores: Edwin Muñoz y Francisco Mora
+ *
+ * Implementación de la clase Ventanilla. Gestiona la asignación de
+ * tiquetes al puesto de atención, calcula el tiempo de espera del
+ * tiquete recibido, mantiene el conteo de atenciones y permite
+ * reiniciar el estado de la ventanilla cuando se limpia el sistema.
+ *
+ */
+
 #include "Ventanilla.h"
 
 Ventanilla::Ventanilla(const std::string& nombre) {
