@@ -33,12 +33,13 @@ public:
 	void agregarArea(const std::string& codigo, const std::string& descripcion, int cantVentanillas);
 	void eliminarArea(int pos);
 	void modificarVentanillas(int posArea, int nuevaCantidad);
+	int getCantidadVentanillas(int posArea) const;
 	int getCantidadAreas() const;
 	Area* getArea(int pos);
 
 	// --- Tiquetes ---
 	Tiquete solicitarTiquete(int posTipo, int posServicio);
-	void atenderTiquete(int posArea, int numVentanilla);
+	Tiquete atenderTiquete(int posArea, int numVentanilla);
 
 	// --- Estadísticas y limpieza ---
 	void mostrarEstadisticas();

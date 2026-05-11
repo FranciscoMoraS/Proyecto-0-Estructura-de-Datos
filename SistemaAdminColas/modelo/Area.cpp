@@ -32,10 +32,11 @@ void Area::encolarTiquete(const Tiquete& tiquete) {
 	tiquetesDispensados++;
 }
 
-void Area::atenderTiquete(int numVentanilla) {
-	if (numVentanilla > ventanillas->getSize())
+Tiquete Area::atenderTiquete(int numVentanilla) {
+	if (numVentanilla >= ventanillas->getSize())
 		throw runtime_error("Numero de ventanilla no valido.");
 	Tiquete tiquete = colaTiquetes->removeMin();
+	tiquete.marcarAtendido();
 	ventanillas->goToPos(numVentanilla);
 	Ventanilla ventanilla = ventanillas->getElement();
 	double espera = ventanilla.atenderTiquete(tiquete);
@@ -43,6 +44,8 @@ void Area::atenderTiquete(int numVentanilla) {
 
 	tiquetesAtendidos++;
 	tiempoEsperaAcumulado += espera;
+
+	return tiquete;
 }
 
 const Ventanilla& Area::getVentanilla(int pos) {
@@ -116,6 +119,10 @@ string Area::getCodigo() const {
 
 string Area::getDescripcion() const {
 	return descripcion;
+}
+
+int Area::getCantidadEnCola() const {
+	return colaTiquetes->getSize();
 }
 
 int Area::getCantidadVentanillas() const {

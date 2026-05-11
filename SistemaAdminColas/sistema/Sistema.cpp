@@ -119,6 +119,18 @@ void Sistema::eliminarArea(int pos) {
 	}
 }
 
+void Sistema::modificarVentanillas(int posArea, int nuevaCantidad) {
+	areas->goToPos(posArea);
+	Area* area = areas->getElement();
+	area->modificarVentanillas(nuevaCantidad);
+}
+
+int Sistema::getCantidadVentanillas(int posArea) const {
+	areas->goToPos(posArea);
+	Area* area = areas->getElement();
+	return area->getCantidadVentanillas();
+}
+
 int Sistema::getCantidadAreas() const {
 	return areas->getSize();
 }
@@ -160,6 +172,12 @@ Tiquete Sistema::solicitarTiquete(int posTipo, int posServicio) {
 	area->encolarTiquete(t);
 
 	return t;
+}
+
+Tiquete Sistema::atenderTiquete(int posArea, int numVentanilla) {
+	areas->goToPos(posArea);
+	Area* area = areas->getElement();
+	return area->atenderTiquete(numVentanilla);
 }
 
 // --- Estadísticas y Limpieza ---

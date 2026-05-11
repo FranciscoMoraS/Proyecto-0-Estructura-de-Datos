@@ -359,16 +359,15 @@ void Interfaz::modificarVentanillas() {
 	mostrarAreas();
 
 	int pos = leerEnteroEnRango("\nNúmero del área a modificar: ", 1, n);
-	Area* area = sistema.getArea(pos - 1);
 
-	cout << "\nVentanillas actuales: " << area->getCantidadVentanillas() << "\n";
+	cout << "\nVentanillas actuales: " << sistema.getCantidadVentanillas(pos-1) << "\n";
 	int nueva = leerEnteroEnRango("Nueva cantidad: ", 1, 999);
 
 	cout << "\nADVERTENCIA: las ventanillas actuales se eliminarán y se crearán\n"
 		<< "de nuevo. Los tiquetes en cola se mantienen.\n";
 
 	if (confirmar("¿Continuar?")) {
-		area->modificarVentanillas(nueva);
+		sistema.modificarVentanillas(pos-1, nueva);
 		cout << "\nCantidad de ventanillas modificada.\n";
 	}
 	else {
@@ -432,7 +431,44 @@ void Interfaz::mostrarServiciosDeArea(const string& codigoArea) {
 
 void Interfaz::atenderTiquete() {
 	limpiarPantalla();
-	cout << "[TODO: atender tiquete]\n";
+	cout << "===== ATENDER TIQUETE =====\n\n";
+
+	int nAreas = sistema.getCantidadAreas();
+	if (nAreas == 0) {
+		cout << "No hay áreas configuradas.\n";
+		presionarParaContinuar();
+		return;
+	}
+
+	mostrarAreas();
+	int posArea = leerEnteroEnRango("\nSeleccione el área: ", 1, nAreas);
+	Area* area = sistema.getArea(posArea - 1);
+
+	int enCola = area->getCantidadEnCola();
+	if (enCola == 0) {
+		cout << "\nNo hay tiquetes en cola para esta área.\n";
+		presionarParaContinuar();
+		return;
+	}
+	cout << "\nTiquetes en cola: " << enCola << "\n";
+
+	cout << "\nVentanillas del area:\n";
+	int nVent = area->getCantidadVentanillas();
+	for (int i = 0; i < nVent; i++) {
+		cout << "  " << (i + 1) << ". " << area->getVentanilla(i) << "\n";
+	}
+	int numVent = leerEnteroEnRango("\nSeleccione ventanilla: ", 1, nVent);
+
+	Tiquete t = sistema.atenderTiquete(posArea - 1, numVent - 1);
+
+	cout << "\n===== TIQUETE ATENDIDO =====\n";
+	cout << t << "\n";
+	cout << "Tiempo de espera: "
+		<< std::fixed << std::setprecision(2)
+		<< t.getTiempoDeEspera()
+		<< " segundos"
+		<< std::defaultfloat << "\n";
+
 	presionarParaContinuar();
 }
 

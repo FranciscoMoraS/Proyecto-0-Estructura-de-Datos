@@ -6,10 +6,9 @@ Ventanilla::Ventanilla(const std::string& nombre) {
 
 double Ventanilla::atenderTiquete(const Tiquete& tiquete) {
 	tiqueteActual = tiquete;
-	tiqueteActual.marcarAtendido();
 	tieneTiqueteActual = true;
 	tiquetesAtendidos++;
-	return tiqueteActual.getTiempoDeEspera();
+	return tiquete.getTiempoDeEspera();
 }
 
 void Ventanilla::limpiar() {

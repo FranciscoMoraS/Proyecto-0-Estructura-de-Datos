@@ -28,7 +28,6 @@ private:
 	void reordenarServicios();
 
 	void mostrarEstadoColas();
-	void seleccionarTipoYServicio();
 
 	void mostrarAreas();
 	void agregarArea();

@@ -26,7 +26,7 @@ public:
 
 	// --- Operaciones tiquete ---
 	void encolarTiquete(const Tiquete& tiquete);
-	void atenderTiquete(int numVentanilla);
+	Tiquete atenderTiquete(int numVentanilla);
 
 	// --- Modificación de ventanillas ---
 	const Ventanilla& getVentanilla(int pos);
@@ -40,6 +40,7 @@ public:
 
 	std::string getCodigo() const;
 	std::string getDescripcion() const;
+	int getCantidadEnCola() const;
 	int getCantidadVentanillas() const;
 	int getTiquetesDispensados() const;
 	int getTiquetesAtendidos() const;
