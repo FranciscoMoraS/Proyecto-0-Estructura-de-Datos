@@ -1,4 +1,14 @@
-﻿#define NOMINMAX
+﻿/*
+ * Archivo: main.cpp
+ * Autores: Edwin Muñoz y Francisco Mora
+ *
+ * Punto de entrada del Sistema de Administración de Colas con Prioridad.
+ * Configura la consola para soportar UTF-8 en Windows, instancia el Sistema
+ * y la Interfaz, e inicia el ciclo principal del programa.
+ *
+ */
+
+#define NOMINMAX
 
 #include <clocale>
 #include <Windows.h>

@@ -1,4 +1,17 @@
-﻿#include <iostream>
+﻿/*
+ * Archivo: Sistema.cpp
+ * Autores: Edwin Muñoz y Francisco Mora
+ *
+ * Implementación del orquestador central del Sistema de Administración
+ * de Colas con Prioridad. Coordina las operaciones sobre tipos de
+ * usuario, servicios y áreas, gestiona la solicitud y atención de
+ * tiquetes (incluyendo el cálculo de la prioridad final mediante la
+ * fórmula PT = PU * 10 + PS), y administra el ciclo de vida de los
+ * objetos en memoria dinámica.
+ *
+ */
+
+#include <iostream>
 #include "Sistema.h"
 #include "../ed/LinkedList.h"
 #include "../modelo/TipoUsuario.h"

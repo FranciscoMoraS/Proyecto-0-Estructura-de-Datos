@@ -1,3 +1,15 @@
+/*
+ * Archivo: TipoUsuario.cpp
+ * Autores: Edwin Muñoz y Francisco Mora
+ *
+ * Implementación de la clase TipoUsuario. Define el comportamiento de
+ * comparación entre tipos según su prioridad (utilizado para mantener
+ * la lista ordenada de tipos en el sistema), gestiona el contador de
+ * tiquetes solicitados y provee la representación textual del tipo
+ * para los menús internos del sistema.
+ *
+ */
+
 #include <iostream>
 #include <string>
 #include "TipoUsuario.h"

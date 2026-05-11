@@ -1,3 +1,16 @@
+/*
+ * Archivo: Pair.h
+ * Autores: Edwin Muñoz y Francisco Mora
+ *
+ * Plantilla genérica que representa una dupla clave-valor. Utilizada
+ * por HeapPriorityQueue para asociar una prioridad (clave) con su
+ * elemento correspondiente (valor). Las operaciones de comparación
+ * se definen exclusivamente sobre la clave, permitiendo ordenar los
+ * pares según su prioridad sin requerir que el tipo del valor sea
+ * comparable.
+ *
+ */
+
 #pragma once
 
 #include <iostream>

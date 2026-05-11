@@ -1,3 +1,15 @@
+/*
+ * Archivo: PriorityQueue.h
+ * Autores: Edwin Muñoz y Francisco Mora
+ *
+ * Clase abstracta que define la interfaz general para una cola con
+ * prioridad. Especifica las operaciones que toda implementación
+ * concreta debe proveer: inserción con prioridad, consulta y
+ * extracción del elemento de mayor prioridad, limpieza, consulta de
+ * tamaño y estado, e impresión. La clase es no-copiable.
+ * 
+ */
+
 #pragma once
 
 template <typename E>

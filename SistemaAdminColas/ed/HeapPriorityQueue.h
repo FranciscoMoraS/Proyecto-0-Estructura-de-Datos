@@ -1,3 +1,16 @@
+/*
+ * Archivo: HeapPriorityQueue.h
+ * Autores: Edwin Muñoz y Francisco Mora
+ *
+ * Implementación genérica de una cola con prioridad sobre un heap
+ * mínimo. Hereda de la clase abstracta PriorityQueue y delega el
+ * almacenamiento a un MinHeap de pares (prioridad, elemento), donde
+ * la prioridad actúa como clave de ordenamiento. Garantiza
+ * inserción y extracción del elemento de mayor prioridad (menor
+ * valor numérico) en tiempo logarítmico.
+ *
+ */
+
 #pragma once
 
 #include <iostream>

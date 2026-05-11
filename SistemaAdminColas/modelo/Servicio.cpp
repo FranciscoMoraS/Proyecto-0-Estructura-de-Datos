@@ -1,4 +1,15 @@
-﻿#include <iostream>
+﻿/*
+ * Archivo: Servicio.cpp
+ * Autores: Edwin Muñoz y Francisco Mora
+ *
+ * Implementación de la clase Servicio. Gestiona el contador acumulado
+ * de tiquetes solicitados para este servicio y provee la
+ * representación textual completa (descripción, área de atención y
+ * prioridad).
+ *
+ */
+
+#include <iostream>
 #include <string>
 #include "Servicio.h"
 

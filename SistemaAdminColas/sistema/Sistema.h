@@ -1,4 +1,18 @@
-﻿#pragma once
+﻿/*
+ * Archivo: Sistema.h
+ * Autores: Edwin Muñoz y Francisco Mora
+ *
+ * Declaración de la clase Sistema, orquestador central del programa.
+ * Mantiene las listas de tipos de usuario, servicios y áreas, y expone
+ * la API que utiliza la Interfaz para realizar todas las operaciones
+ * del sistema: configuración (CRUD de tipos, servicios y áreas),
+ * operación (solicitar y atender tiquetes) y mantenimiento (limpiar
+ * colas y estadísticas). Toda la lógica de negocio vive en esta clase
+ * o delega a las clases del modelo.
+ *
+ */
+
+#pragma once
 
 #include <string>
 #include "../ed/LinkedList.h"

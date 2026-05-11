@@ -1,3 +1,14 @@
+/*
+ * Archivo: Node.h
+ * Autores: Edwin Muñoz y Francisco Mora
+ *
+ * Plantilla genérica que representa un nodo de una lista enlazada
+ * simple. Cada nodo almacena un elemento del tipo parametrizado y un
+ * puntero al siguiente nodo de la lista. Es la unidad básica sobre la
+ * que se construye LinkedList.
+ *
+ */
+
 #pragma once
 
 template <typename E>

@@ -1,3 +1,18 @@
+/*
+ * Archivo: Area.h
+ * Autores: Edwin Muñoz y Francisco Mora
+ *
+ * Declaración de la clase Area, que representa una zona del local
+ * dedicada a atender un conjunto de servicios. Cada área tiene un
+ * código identificador, una descripción, una lista de ventanillas
+ * propias y una cola de tiquetes con prioridad implementada sobre un
+ * heap. Lleva el registro acumulado de tiquetes dispensados,
+ * atendidos y tiempo de espera total para el cálculo de
+ * estadísticas. La clase es no-copiable porque encapsula estructuras
+ * de datos dinámicas no-copiables.
+ *
+ */
+
 #pragma once
 
 #include <iostream>

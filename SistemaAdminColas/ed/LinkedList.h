@@ -1,3 +1,15 @@
+/*
+ * Archivo: LinkedList.h
+ * Autores: Edwin Muñoz y Francisco Mora
+ *
+ * Implementación genérica de una lista enlazada simple con nodo
+ * centinela y cursor de navegación. Hereda de la clase abstracta List
+ * y mantiene punteros a cabeza (centinela), cola y posición actual,
+ * permitiendo recorrer la lista en una pasada y operar sobre el
+ * elemento actual sin recalcular posiciones.
+ *
+ */
+
 #pragma once
 
 #include <iostream>

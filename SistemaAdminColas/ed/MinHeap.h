@@ -1,3 +1,16 @@
+/*
+ * Archivo: MinHeap.h
+ * Autores: Edwin Muñoz y Francisco Mora
+ *
+ * Implementación genérica de un heap binario mínimo sobre un arreglo
+ * estático. Mantiene la propiedad de heap (cada nodo padre es menor o
+ * igual a sus hijos) mediante operaciones siftUp en inserción y
+ * siftDown en remoción, garantizando inserción y extracción del
+ * mínimo en tiempo logarítmico. Sirve como estructura base para
+ * HeapPriorityQueue.
+ *
+ */
+
 #pragma once
 
 #include <iostream>

@@ -1,3 +1,14 @@
+/*
+ * Archivo: Ventanilla.h
+ * Autores: Edwin Muñoz y Francisco Mora
+ *
+ * Declaración de la clase Ventanilla, que representa un puesto de
+ * atención dentro de un área del sistema. Cada ventanilla conoce su
+ * nombre, lleva el conteo de tiquetes que ha atendido y mantiene
+ * registro del tiquete actualmente en atención.
+ *
+ */
+
 #pragma once
 
 #include <iostream>
