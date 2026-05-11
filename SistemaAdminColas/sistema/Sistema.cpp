@@ -10,13 +10,13 @@ using std::cout;
 Sistema::Sistema() {
 	usuarios = new LinkedList<TipoUsuario>();
 	servicios = new LinkedList<Servicio>();
-	//areas = new LinkedList<Area*>();
+	areas = new LinkedList<Area*>();
 }
 
 Sistema::~Sistema() {
 	delete usuarios;
 	delete servicios;
-	// delete areas;
+	delete areas;
 }
 
 // --- Tipos de usuario ---
@@ -35,12 +35,12 @@ void Sistema::eliminarTipoUsuario(int posicion) {
 	usuarios->goToPos(posicion);
 	usuarios->remove();
 
-	/*areas->goToStart();
+	areas->goToStart();
 	while (!areas->atEnd()) {
 		Area* area = areas->getElement();
 		area->limpiarCola();
 		areas->next();
-	}*/
+	}
 }
 
 int Sistema::getCantidadTiposUsuario() const {
