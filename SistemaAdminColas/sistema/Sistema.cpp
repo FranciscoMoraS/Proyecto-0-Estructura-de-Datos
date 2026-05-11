@@ -85,6 +85,11 @@ const Servicio& Sistema::getServicio(int pos) {
 
 // --- Áreas ---
 
+void Sistema::agregarArea(const std::string& codigo, const std::string& descripcion, int cantVentanillas) {
+	Area* nueva = new Area(codigo, descripcion, cantVentanillas);
+	areas->append(nueva);
+}
+
 int Sistema::getCantidadAreas() const {
 	return areas->getSize();
 }

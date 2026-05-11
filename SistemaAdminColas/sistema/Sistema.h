@@ -30,7 +30,8 @@ public:
 	const Servicio& getServicio(int pos);
 
 	// --- Áreas ---
-	void agregarArea(const std::string& descripcion, const std::string& codigo, int cantidadVentanillas);
+	void agregarArea(const std::string& codigo, const std::string& descripcion, int cantVentanillas);
+	void eliminarArea(int pos);
 	void modificarVentanillas(int posArea, int nuevaCantidad);
 	int getCantidadAreas() const;
 	Area* getArea(int pos);
