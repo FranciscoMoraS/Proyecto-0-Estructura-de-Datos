@@ -29,6 +29,7 @@ Area::~Area() {
 
 void Area::encolarTiquete(const Tiquete& tiquete) {
 	colaTiquetes->insert(tiquete, tiquete.getPrioridadFinal());
+	tiquetesDispensados++;
 }
 
 void Area::atenderTiquete(int numVentanilla) {
@@ -37,7 +38,11 @@ void Area::atenderTiquete(int numVentanilla) {
 	Tiquete tiquete = colaTiquetes->removeMin();
 	ventanillas->goToPos(numVentanilla);
 	Ventanilla ventanilla = ventanillas->getElement();
-	tiempoEsperaAcumulado += ventanilla.atenderTiquete(tiquete);
+	double espera = ventanilla.atenderTiquete(tiquete);
+	ventanillas->setElement(ventanilla);
+
+	tiquetesAtendidos++;
+	tiempoEsperaAcumulado += espera;
 }
 
 void Area::modificarVentanillas(int nuevaCantidad) {
@@ -57,6 +62,14 @@ void Area::limpiarColaYEstadisticas() {
 	tiquetesAtendidos = 0;
 	tiquetesDispensados = 0;
 	tiempoEsperaAcumulado = 0;
+
+	ventanillas->goToStart();
+	while (!ventanillas->atEnd()) {
+		Ventanilla v = ventanillas->getElement();
+		v.limpiar();
+		ventanillas->setElement(v);
+		ventanillas->next();
+	}
 }
 
 string Area::getCodigo() const {
