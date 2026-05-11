@@ -1,3 +1,16 @@
+/*
+ * Archivo: Tiquete.h
+ * Autores: Edwin Muñoz y Francisco Mora
+ *
+ * Declaración de la clase Tiquete, que representa un turno emitido por
+ * el sistema. Cada tiquete tiene un código único compuesto por el
+ * código del área más un consecutivo global, registra los timestamps
+ * de solicitud y atención, y conoce su prioridad final calculada según
+ * la fórmula PT = PU * 10 + PS. El consecutivo estático garantiza que
+ * los códigos nunca se reutilicen durante la ejecución del programa.
+ *
+ */
+
 #pragma once
 
 #include <iostream>

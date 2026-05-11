@@ -1,3 +1,16 @@
+/*
+ * Archivo: Tiquete.cpp
+ * Autores: Edwin Muñoz y Francisco Mora
+ *
+ * Implementación de la clase Tiquete. Genera códigos únicos mediante
+ * un consecutivo estático compartido entre todos los tiquetes del
+ * sistema, registra la hora de solicitud al momento de la creación,
+ * marca la hora de atención cuando un tiquete es asignado a una
+ * ventanilla y calcula el tiempo de espera transcurrido entre ambos
+ * eventos.
+ *
+ */
+
 #include <iostream>
 #include <string>
 #include <ctime>
