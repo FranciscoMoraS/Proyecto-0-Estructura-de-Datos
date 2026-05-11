@@ -100,8 +100,17 @@ void Interfaz::menuAreas() {
 	}
 }
 
-// menuTiquetes, menuAreas, menuServicios siguen
-// el mismo patrón de menuAdministracion.
+void Interfaz::mostrarAreas() {
+	int n = sistema.getCantidadAreas();
+	if (n == 0) {
+		cout << "(No hay areas configuradas)\n";
+		return;
+	}
+	cout << "Areas actuales:\n";
+	for (int i = 0; i < n; i++) {
+		cout << "  " << (i + 1) << ". " << *sistema.getArea(i) << "\n";
+	}
+}
 
 // ===================================================================
 // ACCIONES
