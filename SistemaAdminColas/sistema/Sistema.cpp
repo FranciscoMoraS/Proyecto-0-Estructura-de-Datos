@@ -83,6 +83,17 @@ const Servicio& Sistema::getServicio(int pos) {
 	return servicios->getElement();
 }
 
+// --- Áreas ---
+
+int Sistema::getCantidadAreas() const {
+	return areas->getSize();
+}
+
+Area* Sistema::getArea(int pos) {
+	areas->goToPos(pos);
+	return areas->getElement();
+}
+
 // --- Estadísticas y Limpieza ---
 
 void Sistema::mostrarEstadisticas() {

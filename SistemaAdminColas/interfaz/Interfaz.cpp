@@ -79,6 +79,12 @@ void Interfaz::menuTiposUsuario() {
 	}
 }
 
+// menuTiquetes, menuAreas, menuServicios siguen
+// el mismo patrón de menuAdministracion.
+
+// ===================================================================
+// ACCIONES
+// ===================================================================
 void Interfaz::mostrarTiposUsuario() {
 	int n = sistema.getCantidadTiposUsuario();
 	if (n == 0) {
@@ -130,12 +136,6 @@ void Interfaz::eliminarTipoUsuario() {
 
 }
 
-// menuTiquetes, menuAreas, menuServicios siguen
-// el mismo patrón de menuAdministracion.
-
-// ===================================================================
-// ACCIONES
-// ===================================================================
 void Interfaz::mostrarEstadoColas() {
 	limpiarPantalla();
 	cout << "===== ESTADO DE COLAS =====\n";
