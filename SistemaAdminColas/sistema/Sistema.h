@@ -10,7 +10,7 @@ class Sistema {
 private:
 	LinkedList<TipoUsuario>* usuarios;
 	LinkedList<Servicio>* servicios;
-	//LinkedList<Area*>* areas;
+	LinkedList<Area*>* areas;
 
 public:
 	Sistema();
@@ -29,15 +29,15 @@ public:
 	int getCantidadServicios() const;
 	const Servicio& getServicio(int pos);
 
-	// --- Áreas (pendiente: requiere clase Area) ---
-	// void agregarArea(const std::string& descripcion, const std::string& codigo, int cantidadVentanillas);
-	// void modificarVentanillas(int posArea, int nuevaCantidad);
-	// int getCantidadAreas() const;
-	// Area* getArea(int pos);
+	// --- Áreas ---
+	void agregarArea(const std::string& descripcion, const std::string& codigo, int cantidadVentanillas);
+	void modificarVentanillas(int posArea, int nuevaCantidad);
+	int getCantidadAreas() const;
+	Area* getArea(int pos);
 
-	// --- Tiquetes (pendiente: requiere Area y Tiquete integrados) ---
-	// void solicitarTiquete(int posTipo, int posServicio);
-	// void atenderTiquete(int posArea, int numVentanilla);
+	// --- Tiquetes ---
+	void solicitarTiquete(int posTipo, int posServicio);
+	void atenderTiquete(int posArea, int numVentanilla);
 
 	// --- Estadísticas y limpieza ---
 	void mostrarEstadisticas();
