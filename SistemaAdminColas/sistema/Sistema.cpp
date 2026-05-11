@@ -29,6 +29,12 @@ Sistema::Sistema() {
 Sistema::~Sistema() {
 	delete usuarios;
 	delete servicios;
+
+	areas->goToStart();
+	while (!areas->atEnd()) {
+		delete areas->getElement();
+		areas->next();
+	}
 	delete areas;
 }
 
