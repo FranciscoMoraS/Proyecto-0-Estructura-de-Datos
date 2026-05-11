@@ -621,10 +621,13 @@ int Interfaz::leerEnteroEnRango(const string& prompt, int min, int max) {
 }
 
 string Interfaz::leerTexto(const string& prompt) {
-	cout << prompt;
 	string texto;
-	std::getline(std::cin, texto);
-	return texto;
+	while (true) {
+		cout << prompt;
+		std::getline(std::cin, texto);
+		if (!texto.empty()) return texto;
+		cout << "El valor no puede estar vacio.\n";
+	}
 }
 
 bool Interfaz::confirmar(const string& mensaje) {
