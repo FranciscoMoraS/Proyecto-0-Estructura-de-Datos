@@ -1,3 +1,19 @@
+/*
+ * Archivo: Area.cpp
+ * Autores: Edwin Muñoz y Francisco Mora
+ *
+ * Implementación de la clase Area. Construye dinámicamente la lista de
+ * ventanillas y la cola de tiquetes con prioridad al momento de su
+ * creación, asignándole a cada ventanilla un nombre derivado del
+ * código del área. Gestiona la inserción y extracción de tiquetes
+ * según prioridad, la asignación del tiquete extraído a la ventanilla
+ * indicada y el cálculo de estadísticas operativas (tiempo promedio
+ * de espera, tiquetes dispensados y atendidos). Provee operaciones de
+ * limpieza tanto parcial (solo cola) como total (cola + estadísticas
+ * + estado de ventanillas).
+ *
+ */
+
 #include <string>
 #include <stdexcept>
 #include "Area.h"
@@ -86,13 +102,11 @@ void Area::imprimirCola() const {
 		return;
 	}
 
-	// Extraer todos los tiquetes a una lista temporal
 	LinkedList<Tiquete> temp;
 	while (!colaTiquetes->isEmpty()) {
 		temp.append(colaTiquetes->removeMin());
 	}
 
-	// Imprimir solo los códigos
 	std::cout << "[ ";
 	temp.goToStart();
 	bool primero = true;
@@ -104,7 +118,6 @@ void Area::imprimirCola() const {
 	}
 	std::cout << " ]\n";
 
-	// Reinsertar en el heap (no llamar a encolarTiquete porque sumaría a dispensados)
 	temp.goToStart();
 	while (!temp.atEnd()) {
 		const Tiquete& t = temp.getElement();
