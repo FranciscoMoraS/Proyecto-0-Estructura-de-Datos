@@ -54,7 +54,7 @@ void Interfaz::menuAdministracion() {
 			case 1: menuTiposUsuario();				break;
 			case 2: menuAreas();					break;
 			case 3: menuServicio();					break;
-			case 4: "limpiarColasYEstadisticas()";	break;
+			case 4: limpiarColasYEstadisticas();	break;
 			case 5: enMenu = false;					break;
 		}
 	}
@@ -417,7 +417,30 @@ void Interfaz::atenderTiquete() {
 	presionarParaContinuar();
 }
 
-// siguen el mismo patrón
+// --- Limpieza ---
+void Interfaz::limpiarColasYEstadisticas() {
+	limpiarPantalla();
+	cout << "===== LIMPIAR COLAS Y ESTADISTICAS =====\n\n";
+
+	cout << "Esta operación:\n"
+		<< "  - Borra TODOS los tiquetes de TODAS las colas\n"
+		<< "  - Resetea TODOS los contadores estadísticos a cero:\n"
+		<< "      * Tiquetes por tipo de usuario\n"
+		<< "      * Tiquetes por servicio\n"
+		<< "      * Tiquetes dispensados y atendidos por área\n"
+		<< "      * Tiempo de espera acumulado por área\n"
+		<< "      * Tiquetes atendidos por ventanilla\n";
+
+	if (confirmar("\n¿Continuar? Esta acción no se puede deshacer.")) {
+		sistema.limpiarColasYEstadisticas();
+		cout << "\nColas y estadísticas reiniciadas correctamente!\n";
+	}
+	else {
+		cout << "\nOperación cancelada.\n";
+	}
+
+	presionarParaContinuar();
+}
 
 // ===================================================================
 // HELPERS DE E/S
