@@ -90,25 +90,13 @@ void Interfaz::menuAreas() {
 		cout << "3. Eliminar\n";
 		cout << "4. Regresar\n";
 
-		int opcion = leerEnteroEnRango("Seleccione una opcion: ", 1, 4);
+		int opcion = leerEnteroEnRango("Seleccione una opción: ", 1, 4);
 		switch (opcion) {
 		case 1: agregarArea();              break;
 		case 2: modificarVentanillas();     break;
 		case 3: eliminarArea();             break;
 		case 4: enMenu = false;             break;
 		}
-	}
-}
-
-void Interfaz::mostrarAreas() {
-	int n = sistema.getCantidadAreas();
-	if (n == 0) {
-		cout << "(No hay areas configuradas)\n";
-		return;
-	}
-	cout << "Areas actuales:\n";
-	for (int i = 0; i < n; i++) {
-		cout << "  " << (i + 1) << ". " << *sistema.getArea(i) << "\n";
 	}
 }
 
@@ -172,7 +160,7 @@ void Interfaz::mostrarEstadoColas() {
 
 	int numAreas = sistema.getCantidadAreas();
 	if (numAreas == 0) {
-		cout << "(No hay areas configuradas)\n";
+		cout << "(No hay áreas configuradas)\n";
 		presionarParaContinuar();
 		return;
 	}
@@ -192,6 +180,124 @@ void Interfaz::mostrarEstadoColas() {
 	}
 
 	presionarParaContinuar();
+}
+
+void Interfaz::mostrarAreas() {
+	int n = sistema.getCantidadAreas();
+	if (n == 0) {
+		cout << "(No hay áreas configuradas)\n";
+		return;
+	}
+	cout << "Áreas actuales:\n";
+	for (int i = 0; i < n; i++) {
+		cout << "  " << (i + 1) << ". " << *sistema.getArea(i) << "\n";
+	}
+}
+
+void Interfaz::agregarArea() {
+	limpiarPantalla();
+	cout << "===== AGREGAR AREA =====\n\n";
+
+	string codigo = leerTexto("Código del área (ej: C, S, E): ");
+
+	int n = sistema.getCantidadAreas();
+	for (int i = 0; i < n; i++) {
+		if (sistema.getArea(i)->getCodigo() == codigo) {
+			cout << "\nError: ya existe un área con código '" << codigo << "'.\n";
+			presionarParaContinuar();
+			return;
+		}
+	}
+
+	string descripcion = leerTexto("Descripción: ");
+	int cantVentanillas = leerEnteroEnRango("Cantidad de ventanillas: ", 1, 999);
+
+	sistema.agregarArea(codigo, descripcion, cantVentanillas);
+
+	cout << "\nÁrea agregada correctamente!\n";
+	presionarParaContinuar();
+}
+
+void Interfaz::modificarVentanillas() {
+	limpiarPantalla();
+	cout << "===== MODIFICAR CANTIDAD DE VENTANILLAS =====\n\n";
+
+	int n = sistema.getCantidadAreas();
+	if (n == 0) {
+		cout << "(No hay áreas configuradas)\n";
+		presionarParaContinuar();
+		return;
+	}
+	mostrarAreas();
+
+	int pos = leerEnteroEnRango("\nNúmero del área a modificar: ", 1, n);
+	Area* area = sistema.getArea(pos - 1);
+
+	cout << "\nVentanillas actuales: " << area->getCantidadVentanillas() << "\n";
+	int nueva = leerEnteroEnRango("Nueva cantidad: ", 1, 999);
+
+	cout << "\nADVERTENCIA: las ventanillas actuales se eliminarán y se crearán\n"
+		<< "de nuevo. Los tiquetes en cola se mantienen.\n";
+
+	if (confirmar("¿Continuar?")) {
+		area->modificarVentanillas(nueva);
+		cout << "\nCantidad de ventanillas modificada.\n";
+	}
+	else {
+		cout << "\nOperación cancelada.\n";
+	}
+
+	presionarParaContinuar();
+}
+
+void Interfaz::eliminarArea() {
+	limpiarPantalla();
+	cout << "===== ELIMINAR AREA =====\n\n";
+
+	int n = sistema.getCantidadAreas();
+	if (n == 0) {
+		cout << "(No hay áreas configuradas)\n";
+		presionarParaContinuar();
+		return;
+	}
+	mostrarAreas();
+
+	int pos = leerEnteroEnRango("\nNúmero del área a eliminar: ", 1, n);
+	Area* area = sistema.getArea(pos - 1);
+	string codigo = area->getCodigo();
+
+	cout << "\nServicios que también se eliminarán:\n";
+	mostrarServiciosDeArea(codigo);
+
+	cout << "\nADVERTENCIA: eliminar esta área también:\n"
+		<< "  - Borra todas sus ventanillas\n"
+		<< "  - Elimina los servicios listados arriba\n"
+		<< "  - Vacía las colas de todas las áreas restantes\n";
+
+	if (confirmar("¿Continuar?")) {
+		sistema.eliminarArea(pos - 1);
+		cout << "\nÁrea eliminada!\n";
+	}
+	else {
+		cout << "\nOperación cancelada.\n";
+	}
+
+	presionarParaContinuar();
+}
+
+void Interfaz::mostrarServiciosDeArea(const string& codigoArea) {
+	int n = sistema.getCantidadServicios();
+	bool hayAlguno = false;
+	for (int i = 0; i < n; i++) {
+		const Servicio& s = sistema.getServicio(i);
+		if (s.getCodigoArea() == codigoArea) {
+			cout << "  - " << s << "\n";
+			hayAlguno = true;
+		}
+	}
+	if (!hayAlguno) {
+		cout << "  (ninguno)\n";
+	}
 }
 
 void Interfaz::atenderTiquete() {
