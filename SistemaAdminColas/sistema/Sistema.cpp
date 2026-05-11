@@ -63,7 +63,11 @@ void Sistema::eliminarServicio(int posicion) {
 	servicios->goToPos(posicion);
 	servicios->remove();
 
-	// TODO: limpiar tiquetes de todas las colas
+	areas->goToStart();
+	while (!areas->atEnd()) {
+		areas->getElement()->limpiarCola();
+		areas->next();
+	}
 }
 
 void Sistema::reordenarServicio(int desde, int hasta) {
