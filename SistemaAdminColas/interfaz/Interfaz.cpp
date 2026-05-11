@@ -139,7 +139,28 @@ void Interfaz::eliminarTipoUsuario() {
 void Interfaz::mostrarEstadoColas() {
 	limpiarPantalla();
 	cout << "===== ESTADO DE COLAS =====\n";
-	cout << "[TODO: mostrar estado de las colas]\n";
+
+	int numAreas = sistema.getCantidadAreas();
+	if (numAreas == 0) {
+		cout << "(No hay areas configuradas)\n";
+		presionarParaContinuar();
+		return;
+	}
+
+	for (int i = 0; i < numAreas; i++) {
+		Area* area = sistema.getArea(i);
+
+		cout << *area << "\n";   // area's operator<<: "C - Cajas (4 ventanillas)"
+		cout << "  Cola de tiquetes: ";
+		area->imprimirCola();
+		cout << "  Ventanillas:\n";
+		int numVent = area->getCantidadVentanillas();
+		for (int j = 0; j < numVent; j++) {
+			cout << "    " << area->getVentanilla(j) << "\n";
+		}
+		cout << "\n";
+	}
+
 	presionarParaContinuar();
 }
 
