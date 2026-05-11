@@ -90,6 +90,31 @@ void Sistema::agregarArea(const std::string& codigo, const std::string& descripc
 	areas->append(nueva);
 }
 
+void Sistema::eliminarArea(int pos) {
+	areas->goToPos(pos);
+	Area* area = areas->getElement();
+	string codigo = area->getCodigo();
+
+	areas->remove();
+	delete area;
+
+	servicios->goToStart();
+	while (!servicios->atEnd()) {
+		if (servicios->getElement().getCodigoArea() == codigo) {
+			servicios->remove();
+		}
+		else {
+			servicios->next();
+		}
+	}
+
+	areas->goToStart();
+	while (!areas->atEnd()) {
+		areas->getElement()->limpiarCola();
+		areas->next();
+	}
+}
+
 int Sistema::getCantidadAreas() const {
 	return areas->getSize();
 }
