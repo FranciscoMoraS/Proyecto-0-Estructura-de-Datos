@@ -52,7 +52,7 @@ void Interfaz::menuAdministracion() {
 		int opcion = leerEnteroEnRango("Seleccione una opción: ", 1, 5);
 		switch (opcion) {
 			case 1: menuTiposUsuario();				break;
-			case 2: "menuAreas()";					break;
+			case 2: menuAreas();					break;
 			case 3: "menuServicios()";				break;
 			case 4: "limpiarColasYEstadisticas()";	break;
 			case 5: enMenu = false;					break;
@@ -75,6 +75,27 @@ void Interfaz::menuTiposUsuario() {
 		case 1: agregarTipoUsuario();			break;
 		case 2: eliminarTipoUsuario();			break;
 		case 3: enMenu = false;					break;
+		}
+	}
+}
+
+void Interfaz::menuAreas() {
+	bool enMenu = true;
+	while (enMenu) {
+		limpiarPantalla();
+		cout << "===== AREAS =====\n\n";
+		mostrarAreas();
+		cout << "\n1. Agregar\n";
+		cout << "2. Modificar cantidad de ventanillas\n";
+		cout << "3. Eliminar\n";
+		cout << "4. Regresar\n";
+
+		int opcion = leerEnteroEnRango("Seleccione una opcion: ", 1, 4);
+		switch (opcion) {
+		case 1: agregarArea();              break;
+		case 2: modificarVentanillas();     break;
+		case 3: eliminarArea();             break;
+		case 4: enMenu = false;             break;
 		}
 	}
 }

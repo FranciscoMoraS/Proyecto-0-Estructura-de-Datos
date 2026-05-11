@@ -27,9 +27,11 @@ private:
 	void atenderTiquete();
 	void mostrarEstadisticas();
 
+	void mostrarAreas();
 	void agregarArea();
 	void modificarVentanillas();
 	void eliminarArea();
+	void mostrarServiciosDeArea(const std::string& codigoArea);
 
 	void agregarServicio();
 	void eliminarServicio();
