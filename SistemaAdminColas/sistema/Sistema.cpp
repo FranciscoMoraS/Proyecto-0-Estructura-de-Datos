@@ -182,38 +182,6 @@ Tiquete Sistema::atenderTiquete(int posArea, int numVentanilla) {
 
 // --- Estadísticas y Limpieza ---
 
-void Sistema::mostrarEstadisticas() {
-	cout << "===== ESTADISTICAS DEL SISTEMA =====\n\n";
-
-	cout << "-- Tiquetes emitidos por tipo de usuario --\n";
-	if (usuarios->getSize() == 0) {
-		cout << "  (sin datos)\n";
-	}
-	else {
-		usuarios->goToStart();
-		while (!usuarios->atEnd()) {
-			const TipoUsuario& usuario = usuarios->getElement();
-			cout << "  " << usuario << " -> " << usuario.getTotalTiquetes() << " tiquetes\n";
-			usuarios->next();
-		}
-	}
-
-	cout << "\n-- Tiquetes solicitados por servicio --\n";
-	if (servicios->getSize() == 0) {
-		cout << "  (sin datos)\n";
-	}
-	else {
-		servicios->goToStart();
-		while (!servicios->atEnd()) {
-			const Servicio& servicio = servicios->getElement();
-			cout << "  " << servicio << " -> " << servicio.getTotalTiquetes() << " tiquetes\n";
-			servicios->next();
-		}
-	}
-
-	// TODO: estadísticas por área (tiempo promedio, dispensados) y por ventanilla (atendidos)
-}
-
 void Sistema::limpiarColasYEstadisticas() {
 	usuarios->goToStart();
 	while (!usuarios->atEnd()) {

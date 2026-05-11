@@ -42,6 +42,5 @@ public:
 	Tiquete atenderTiquete(int posArea, int numVentanilla);
 
 	// --- Estadísticas y limpieza ---
-	void mostrarEstadisticas();
 	void limpiarColasYEstadisticas();
 };
