@@ -205,7 +205,7 @@ void Interfaz::eliminarTipoUsuario() {
 	mostrarTiposUsuario();
 
 	int pos = leerEnteroEnRango("\nNúmero del tipo a eliminar: ", 1, n);
-	cout << "\nADVERTENCIA: Eliminar un tipo de usuario borrará todos los tiquetes de todas las colas.\n";
+	cout << "\nADVERTENCIA: Eliminar un tipo de usuario borrara todos los tiquetes de todas las colas.\n";
 
 	if (confirmar("¿Continuar?")) {
 		sistema.eliminarTipoUsuario(pos - 1);
@@ -236,7 +236,7 @@ void Interfaz::agregarServicio() {
 
 	int numAreas = sistema.getCantidadAreas();
 	if (numAreas == 0) {
-		cout << "Debe existir al menos un área antes de agregar un servicio.\n";
+		cout << "Debe existir al menos un area antes de agregar un servicio.\n";
 		presionarParaContinuar();
 		return;
 	}
