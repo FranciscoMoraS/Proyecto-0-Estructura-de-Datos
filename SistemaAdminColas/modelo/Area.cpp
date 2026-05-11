@@ -77,6 +77,10 @@ void Area::limpiarColaYEstadisticas() {
 	}
 }
 
+void Area::imprimirCola() const {
+	colaTiquetes->print();
+}
+
 string Area::getCodigo() const {
 	return codigo;
 }

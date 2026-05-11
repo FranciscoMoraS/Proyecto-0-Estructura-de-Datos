@@ -36,6 +36,8 @@ public:
 	void limpiarCola();
 	void limpiarColaYEstadisticas();
 
+	void imprimirCola() const;
+
 	std::string getCodigo() const;
 	std::string getDescripcion() const;
 	int getCantidadVentanillas() const;
