@@ -4,13 +4,13 @@
 #include "../ed/LinkedList.h"
 #include "../modelo/TipoUsuario.h"
 #include "../modelo/Servicio.h"
-//#include "../modelo/Area.h" pendiente
+// #include "../modelo/Area.h"
 
 class Sistema {
 private:
 	LinkedList<TipoUsuario>* usuarios;
 	LinkedList<Servicio>* servicios;
-	//LinkedList<Area*>* areas;	pendiente
+	// LinkedList<Area*>* areas;
 
 public:
 	Sistema();

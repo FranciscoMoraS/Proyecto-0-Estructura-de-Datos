@@ -2,6 +2,7 @@
 #include "Sistema.h"
 #include "../ed/LinkedList.h"
 #include "../modelo/TipoUsuario.h"
+// #include "../modelo/Area.h"
 
 using std::string;
 using std::cout;
@@ -9,7 +10,7 @@ using std::cout;
 Sistema::Sistema() {
 	usuarios = new LinkedList<TipoUsuario>();
 	servicios = new LinkedList<Servicio>();
-	// areas = new LinkedList<Area*>();		pendiente
+	// areas = new LinkedList<Area*>();
 }
 
 Sistema::~Sistema() {

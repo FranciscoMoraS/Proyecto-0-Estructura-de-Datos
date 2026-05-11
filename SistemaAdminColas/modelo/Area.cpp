@@ -48,6 +48,10 @@ void Area::modificarVentanillas(int nuevaCantidad) {
 	}
 }
 
+void Area::limpiarCola() {
+	colaTiquetes->clear();
+}
+
 void Area::limpiarColaYEstadisticas() {
 	colaTiquetes->clear();
 	tiquetesAtendidos = 0;
