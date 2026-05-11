@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include <sstream>
 #include <cstdlib>
+#include <iomanip>
 #include "Interfaz.h"
 
 using std::cout;
@@ -33,7 +34,7 @@ void Interfaz::menuPrincipal() {
 		case 2: "menuTiquetes()";			break;
 		case 3: atenderTiquete();			break;
 		case 4: menuAdministracion();		break;
-		case 5: "mostrarEstadisticas()";	break;
+		case 5: mostrarEstadisticas();		break;
 		case 6: ejecutando = false;			break;
 	}
 }
@@ -417,7 +418,66 @@ void Interfaz::atenderTiquete() {
 	presionarParaContinuar();
 }
 
+// -- Estadísticas --
+
+void Interfaz::mostrarEstadisticas() {
+	limpiarPantalla();
+	cout << "===== ESTADISTICAS DEL SISTEMA =====\n\n";
+
+	cout << "--- Tiquetes solicitados por tipo de usuario ---\n";
+	int nTipos = sistema.getCantidadTiposUsuario();
+	if (nTipos == 0) {
+		cout << "  (No hay tipos de usuario configurados)\n";
+	}
+	else {
+		for (int i = 0; i < nTipos; i++) {
+			const TipoUsuario& t = sistema.getTipoUsuario(i);
+			cout << "  - " << t << ": " << t.getTotalTiquetes() << " tiquete(s)\n";
+		}
+	}
+
+	cout << "\n--- Tiquetes solicitados por servicio ---\n";
+	int nServ = sistema.getCantidadServicios();
+	if (nServ == 0) {
+		cout << "  (No hay servicios configurados)\n";
+	}
+	else {
+		for (int i = 0; i < nServ; i++) {
+			const Servicio& s = sistema.getServicio(i);
+			cout << "  - " << s << ": " << s.getTotalTiquetes() << " tiquete(s)\n";
+		}
+	}
+
+	cout << "\n--- Estadísticas por área ---\n";
+	int nAreas = sistema.getCantidadAreas();
+	if (nAreas == 0) {
+		cout << "  (No hay áreas configuradas)\n";
+	}
+	else {
+		for (int i = 0; i < nAreas; i++) {
+			Area* area = sistema.getArea(i);
+			cout << "\n  " << *area << "\n";
+			cout << "    Tiquetes dispensados:      " << area->getTiquetesDispensados() << "\n";
+			cout << "    Tiquetes atendidos:        " << area->getTiquetesAtendidos() << "\n";
+			cout << "    Tiempo promedio de espera: "
+				<< std::fixed << std::setprecision(2)
+				<< area->getTiempoPromedio()
+				<< " segundos"
+				<< std::defaultfloat << "\n";
+			cout << "    Ventanillas:\n";
+			int nVent = area->getCantidadVentanillas();
+			for (int j = 0; j < nVent; j++) {
+				const Ventanilla& v = area->getVentanilla(j);
+				cout << "      - " << v.getNombre() << ": " << v.getTiquetesAtendidos() << " atendido(s)\n";
+			}
+		}
+	}
+
+	presionarParaContinuar();
+}
+
 // --- Limpieza ---
+
 void Interfaz::limpiarColasYEstadisticas() {
 	limpiarPantalla();
 	cout << "===== LIMPIAR COLAS Y ESTADISTICAS =====\n\n";
