@@ -1,3 +1,16 @@
+/*
+ * Archivo: List.h
+ * Autores: Edwin Muñoz y Francisco Mora
+ *
+ * Clase abstracta que define la interfaz general para una lista
+ * lineal. Especifica las operaciones que toda implementación concreta
+ * debe proveer: inserción y eliminación de elementos, acceso y
+ * modificación del elemento actual, navegación por la lista mediante
+ * un cursor (inicio, fin, posición específica, avance y retroceso),
+ * consulta del estado del cursor e impresión. La clase es no-copiable.
+ *
+ */
+
 #pragma once
 
 template <typename E>
